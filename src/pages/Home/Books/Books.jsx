@@ -4,7 +4,7 @@ import waytosuccess from '../../../assets/books/AviationCareer.png'
 
 const Books = () => {
     return (
-        <div className="bg-black text-white py-20">
+        <div id="books" className="bg-black text-white py-20">
             <div className="container mx-auto">
                 <div className=" flex items-center sm:flex-row flex-col sm:divide-x-4 sm:divide-y-0 divide-y-4 divide-primaryColor-200 sm:gap-14 gap-5 sm:px-0 px-5">
                     <h2 className="text-5xl font-semibold">My Books</h2>
@@ -13,7 +13,7 @@ const Books = () => {
                     </p>
                 </div>
 
-                <div className=" grid 2xl:grid-cols-3 lg:grid-cols-2 sm:grid-cols-2 gap-5 sm:px-0 px-5 mt-20">
+                <div className=" grid 2xl:grid-cols-2 lg:grid-cols-2 sm:grid-cols-1 gap-5 sm:px-0 px-5 mt-20">
                     
                     <div className="w-full cursor-pointer flex items-center gap-5 bg-primaryColor-500 border border-transparent hover:border-primaryColor-200 duration-200 rounded-md p-5 relative ">
                         <div>

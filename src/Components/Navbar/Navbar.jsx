@@ -11,7 +11,7 @@ const Navbar = () => {
                 <div className="relative -mx-4 flex items-center justify-between">
                     <div className="flex w-full items-center justify-between px-4">
                         <div className=" max-w-full px-4">
-                            <a href="/#" className="block w-full py-5 font-bold text-2xl">
+                            <a href="/" className="block w-full py-5 font-bold text-2xl">
                                 Jahirul
                                 <sup className="text-3xl font-bold text-primaryColor-200">.</sup>
                             </a>
@@ -32,18 +32,18 @@ const Navbar = () => {
                                 id="navbarCollapse"
                                 className={`absolute right-4 top-full w-full max-w-[250px] rounded-b lg:text-white bg-black px-6 py-5 shadow dark:bg-dark-2 lg:static lg:block lg:w-full lg:max-w-full lg:shadow-none lg:dark:bg-transparent ${!open && "hidden"} `}>
                                 <ul className="block lg:flex dark:text-dark-6 dark:hover:text-white lg:flex-row flex-col gap-10 ">
-                                    <ListItem NavLink="/#">Home</ListItem>
-                                    <ListItem NavLink="/#about">About</ListItem>
-                                    <ListItem NavLink="/#books">Books</ListItem>
-                                    <ListItem NavLink="/#achievement">Achievement</ListItem>
-                                    <ListItem NavLink="/#feature">Feature</ListItem>
-                                    <ListItem NavLink="/#contact">Contact</ListItem>
-                                    <ListItem NavLink="/#blog">Blog</ListItem>
+                                    <ListItem NavLink="/">Home</ListItem>
+                                    <ListItem NavLink="#about">About</ListItem>
+                                    <ListItem NavLink="#books">Books</ListItem>
+                                    <ListItem NavLink="#achievement">Achievement</ListItem>
+                                    <ListItem NavLink="#feature">Feature</ListItem>
+                                    <ListItem NavLink="#contact">Contact</ListItem>
+                                    <ListItem NavLink="#blogs">Blogs</ListItem>
                                 </ul>
                             </nav>
                         </div>
                         <div className="hidden justify-end pr-16 sm:flex lg:pr-0">
-                            <Button btnValue={'Order Now'} />
+                            <Button btnValue={'Order Now'} link={'books'} />
                         </div>
                     </div>
                 </div>
