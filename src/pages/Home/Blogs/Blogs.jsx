@@ -1,35 +1,15 @@
+import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import SectionTitle from "../../../Components/SectionTitle/SectionTitle";
-
-import blog1 from '../../../assets/blogs/blog1.png'
-import blog2 from '../../../assets/blogs/blog2.png'
-import blog3 from '../../../assets/blogs/blog3.png'
-
-const blogs = [
-    {
-        id: 1,
-        image: blog1,
-        date: 'Aug 23, 2024',
-        title: 'Writing Skills',
-        details: 'This award I received from the Canadian University of Bangladesh and they give this award for my outstanding contribution in inclusive education for the child.',
-    },
-    {
-        id: 2,
-        image: blog2,
-        date: 'Aug 23, 2024',
-        title: 'Communication Skills',
-        details: 'but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised',
-    },
-    {
-        id: 3,
-        image: blog3,
-        date: 'Aug 23, 2024',
-        title: 'Skills Development',
-        details: 'but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised',
-    }
-]
+import { blogs } from "../../../../public/data";
 
 const Blogs = () => {
+    const [visibleBlogs, setVisibleBlogs] = useState(3); // State to track the number of visible blogs
+
+    const handleShowMore = () => {
+        setVisibleBlogs(prev => prev + 3); // Increase the number of visible blogs by 3
+    };
+
     return (
         <div id="blogs" className="bg-secondaryColor-100 py-20">
             <div className="flex flex-col justify-center text-center items-center gap-5">
@@ -40,12 +20,11 @@ const Blogs = () => {
             </div>
             <div className="container mx-auto">
                 <div className="grid xl:grid-cols-3 sm:grid-cols-2 justify-items-center gap-5 mt-10 xl:mx-0 mx-5">
-
-                    {blogs?.map((item, index) => (
-                        <Link key={index} to={''}>
-                            <div className=" bg-primaryColor-500 hover:bg-primaryColor-400 duration-300 cardHover rounded-md">
+                    {blogs.slice(0, visibleBlogs).map((item, index) => (
+                        <Link key={index} to={`blog/` + item?._id}>
+                            <div className=" bg-primaryColor-500 hover:bg-primaryColor-400 duration-300 cardHover rounded-md animate__animated animate__fadeIn">
                                 <div className="overflow-hidden rounded-t-md">
-                                    <img src={item?.image} className="w-full" alt="" />
+                                    <img src={item?.image} className="w-full h-80 object-cover" alt="" />
                                 </div>
                                 <div className="p-5">
                                     <h6 className="text-primaryColor-300 text-sm font-semibold mb-5">{item?.date}</h6>
@@ -53,16 +32,20 @@ const Blogs = () => {
                                     <p className="text-primaryColor-300">
                                         {item?.details.length > 100 ? item.details.slice(0, 100) + '...' : item.details}
                                     </p>
-
                                 </div>
                             </div>
                         </Link>
-                    ))
-
-                    }
+                    ))}
                 </div>
+                {visibleBlogs < blogs.length && ( // Show the "Show More" button if there are more blogs to show
+                    <div className="text-center mt-10">
+                        <button className="bg-primaryColor-200 hover:bg-transparent border border-transparent hover:border-primaryColor-200 duration-300 px-5 py-3 rounded-md text-white font-semibold" onClick={handleShowMore}>
+                            Show More
+                        </button>
+                    </div>
+                )}
             </div>
-        </div >
+        </div>
     );
 };
 

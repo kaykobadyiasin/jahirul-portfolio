@@ -7,10 +7,10 @@ const Navbar = () => {
 
     return (
         <header className={`flex w-full items-center text-white bg-black dark:bg-dark`}>
-            <div className="container mx-auto sm:px-0 px-5">
+            <div className="container mx-auto sm:px-0">
                 <div className="relative -mx-4 flex items-center justify-between">
-                    <div className="flex w-full items-center justify-between px-4">
-                        <div className=" max-w-full px-4">
+                    <div className="flex w-full items-center justify-between lg:px-0 px-4">
+                        <div className=" max-w-full lg:px-0 px-4">
                             <a href="/" className="block w-full py-5 font-bold text-2xl">
                                 Jahirul
                                 <sup className="text-3xl font-bold text-primaryColor-200">.</sup>
@@ -30,7 +30,7 @@ const Navbar = () => {
                             <nav
                                 // :className="!navbarOpen && 'hidden' "
                                 id="navbarCollapse"
-                                className={`absolute right-4 top-full w-full max-w-[250px] rounded-b lg:text-white bg-black px-6 py-5 shadow dark:bg-dark-2 lg:static lg:block lg:w-full lg:max-w-full lg:shadow-none lg:dark:bg-transparent ${!open && "hidden"} `}>
+                                className={`absolute z-40 right-4 top-full w-full max-w-[250px] rounded-b lg:text-white bg-black px-6 py-5 shadow dark:bg-dark-2 lg:static lg:block lg:w-full lg:max-w-full lg:shadow-none lg:dark:bg-transparent ${!open && "hidden"} `}>
                                 <ul className="block lg:flex dark:text-dark-6 dark:hover:text-white lg:flex-row flex-col gap-10 ">
                                     <ListItem NavLink="/">Home</ListItem>
                                     <ListItem NavLink="#about">About</ListItem>
@@ -43,7 +43,7 @@ const Navbar = () => {
                             </nav>
                         </div>
                         <div className="hidden justify-end pr-16 sm:flex lg:pr-0">
-                            <Button btnValue={'Order Now'} link={'books'} />
+                            <Button btnValue={'Order Now'} link={'#books'} color={'hover:text-primaryColor-100'} />
                         </div>
                     </div>
                 </div>

@@ -1,20 +1,62 @@
 
-import { Outlet } from 'react-router-dom';
+import { Outlet, useLocation } from 'react-router-dom';
 import Navbar from '../Components/Navbar/Navbar';
 import Footer from '../Components/Footer/Footer';
 import { Icon } from '@iconify/react';
+import { useEffect, useState } from 'react';
+import { BallTriangle } from 'react-loader-spinner'
+import 'animate.css';
 
 const Main = () => {
+
+
+
+    const [loading, setLoading] = useState(true);
+    const { pathname } = useLocation();
+
+    useEffect(() => {
+        window.scrollTo(0, 0);
+    }, [pathname]);
+
+
+
+
+    useEffect(() => {
+        setLoading(true);
+        setTimeout(() => {
+            setLoading(false);
+        }, 1000)
+    }, [])
+
     return (
         <div>
-            <div className='relative'>
-                <Navbar />
-                <Outlet />
-                <Footer />
-                <div className='absolute bottom-5 right-10 animate__animated animate__bounce animate__infinite rounded-md p-1'>
-                    <Icon icon='solar:arrow-up-broken' className="text-3xl text-white" />
+            {loading ?
+                <div className="flex flex-col justify-center items-center h-screen bg-secondaryColor-100 text-white">
+                    <div className="animate__animated animate__heartBeat  animate__slower 3s">
+                        <BallTriangle
+                            height={100}
+                            width={100}
+                            radius={5}
+                            color="#ffffff"
+                            ariaLabel="ball-triangle-loading"
+                            wrapperStyle={{}}
+                            wrapperClass=""
+                            visible={true}
+                        />
+                    </div>
+                    {/* <h2 className="mt-10 font-semibold text-xl animate__animated animate__flipInX infinite slow	800ms">Welcome to Matribhumi Smart City</h2> */}
                 </div>
-            </div>
+
+                :
+                <div className='relative'>
+                    <Navbar />
+                    <Outlet />
+                    <Footer />
+                    <div onClick={() => window.scrollTo(0, 0)} className='duration-200 fixed bottom-5 right-10 cursor-pointer rounded-md p-1'>
+                        <Icon icon='mingcute:arrows-up-line' className="text-3xl text-primaryColor-200" />
+                    </div>
+                </div>
+            }
         </div>
     );
 };

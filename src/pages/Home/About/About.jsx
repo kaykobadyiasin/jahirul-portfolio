@@ -6,11 +6,13 @@ import doted from '../../../assets/Footer/doted.png'
 
 const aboutMe = [
     { about: 'Explore Career' },
-    { about: 'Aviation And Development' },
-    { about: 'Explore Career' },
-    { about: 'Find Resume Tips' },
-    { about: 'Interview Tricks' },
-    { about: 'Corporate' }
+    
+    { about: 'development sector'},
+    { about: 'Corporate sector'},
+    { about: 'Find Resume Tips'},
+    { about: 'Interview Tricks'},
+    { about: 'Aviation And Development'},
+    { about: 'soft and technical skills'},
 ]
 
 const About = () => {
@@ -43,7 +45,7 @@ const About = () => {
                         </p>
                         <div className='flex flex-wrap gap-5 xl:mt-20 mt-10'>
                             {aboutMe?.map((item, index) => (
-                                <span key={index} className='bg-primaryColor-400 text-primaryColor-100 font-semibold px-5 py-3 rounded-md'>{item?.about}</span>
+                                <span key={index} className='bg-primaryColor-400 text-primaryColor-100 font-semibold px-5 py-3 rounded-md capitalize'>{item?.about}</span>
                             ))
                             }
                         </div>

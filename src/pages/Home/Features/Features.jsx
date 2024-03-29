@@ -6,11 +6,6 @@ import news3 from '../../../assets/Featrues/news3.png'
 import news4 from '../../../assets/Featrues/news4.png'
 import news5 from '../../../assets/Featrues/news5.png'
 
-import feature1 from '../../../assets/Featrues/feature/fature1.png'
-import feature2 from '../../../assets/Featrues/feature/fature2.png'
-// import feature3 from '../../../assets/Featrues/feature/fature3.png'
-// import feature4 from '../../../assets/Featrues/feature/fature4.jpg'
-import feature from '../../../assets/Featrues/feature/fature.jpg'
 
 // Import Swiper React components
 import { Swiper, SwiperSlide } from 'swiper/react';
@@ -22,58 +17,37 @@ import 'swiper/css/pagination';
 
 // import required modules
 import { Autoplay, Pagination } from 'swiper/modules';
+import { features } from "../../../../public/data";
 
-const features = [
+const news = [
     {
         id: 1,
-        image: feature1,
-        date: 'Aug 23, 2024',
-        title: 'Writing Skills',
-        details: 'This award I received from the Canadian University of Bangladesh and they give this award for my outstanding contribution in inclusive education for the child.',
+        image: news1,
+        url: 'https://www.prothomalo.com/lifestyle/'
     },
     {
-        id: 2,
-        image: feature2,
-        date: 'Aug 23, 2024',
-        title: 'Communication Skills',
-        details: 'but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised',
+        id: 1,
+        image: news2,
+        url: 'https://samakal.com/todays-print-edition/tp-sahos/article/200745389/'
     },
     {
-        id: 3,
-        image: feature,
-        date: 'Aug 23, 2024',
-        title: 'Skills Development',
-        details: 'but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised',
+        id: 1,
+        image: news3,
+        url: 'https://www.deshrupantor.com/252788/'
     },
     {
-        id: 4,
-        image: feature1,
-        date: 'Aug 23, 2024',
-        title: 'Skills Development',
-        details: 'but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised',
+        id: 1,
+        image: news4,
+        url: ''
     },
     {
-        id: 5,
-        image: feature2,
-        date: 'Aug 23, 2024',
-        title: 'Skills Development',
-        details: 'but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised',
-    },
-    {
-        id: 6,
-        image: feature,
-        date: 'Aug 23, 2024',
-        title: 'Skills Development',
-        details: 'but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised',
-    },
-    {
-        id: 7,
-        image: feature1,
-        date: 'Aug 23, 2024',
-        title: 'Skills Development',
-        details: 'but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised',
-    },
+        id: 1,
+        image: news5,
+        url: 'https://www.thedailystar.net/star-youth/news/igniting-confidence-across-communities-1935457'
+    }
 ];
+
+const feature = features;
 
 const Features = () => {
     return (
@@ -106,16 +80,18 @@ const Features = () => {
                             },
                         }}
                     >
-                        {features.map((item, index) => (
+                        {feature.map((item, index) => (
                             <SwiperSlide key={index}>
-                                <Link to={''}>
+                                <Link to={item?.url} target="_blank">
                                     <div className="relative bg-primaryColor-500 hover:bg-primaryColor-400 duration-300 translate-y-28 hover:translate-y-5 rounded-md">
                                         <div className="rounded-t-md">
                                             <img src={item.image} className="w-full" alt="" />
                                         </div>
-                                        <div className="p-5 absolute top-0 bg-gradient-to-t from-secondaryColor-100 w-full h-full flex flex-col justify-end">
-                                            <h3 className="text-primaryColor-100 text-xl font-semibold mb-2">{item.title}</h3>
-                                            <h6 className="text-primaryColor-300 text-sm font-semibold">{item.date}</h6>
+                                        <div className="p-5 absolute top-0 bg-gradient-to-t from-secondaryColor-100 w-full h-full ">
+                                            <div className="flex flex-col justify-end -translate-y-[150px] h-[500px] sticky bottom-0">
+                                                <h3 className="text-primaryColor-100 text-xl font-semibold mb-2">{item.title}</h3>
+                                                <h6 className="text-primaryColor-300 text-sm font-semibold">{item.date}</h6>
+                                            </div>
                                         </div>
                                     </div>
                                 </Link>
@@ -127,31 +103,14 @@ const Features = () => {
             <div className="py-8 border-y border-secondaryColor-200 my-32">
                 <div className="xl:mx-0 mx-5">
                     <div className="container mx-auto flex flex-wrap justify-between items-center gap-10">
-                        <div>
-                            <Link to={''}>
-                                <img src={news1} alt="" />
-                            </Link>
-                        </div>
-                        <div>
-                            <Link to={''}>
-                                <img src={news2} alt="" />
-                            </Link>
-                        </div>
-                        <div>
-                            <Link to={''}>
-                                <img src={news3} alt="" />
-                            </Link>
-                        </div>
-                        <div>
-                            <Link to={''}>
-                                <img src={news4} alt="" />
-                            </Link>
-                        </div>
-                        <div>
-                            <Link to={''}>
-                                <img src={news5} alt="" />
-                            </Link>
-                        </div>
+                        {news?.map((item, index) => (
+                            <div key={index}>
+                                <Link to={item?.url} target="_blank">
+                                    <img src={item?.image} alt="" />
+                                </Link>
+                            </div>
+                        ))
+                        }
                     </div>
                 </div>
             </div>

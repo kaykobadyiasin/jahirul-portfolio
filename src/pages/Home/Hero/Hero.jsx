@@ -12,8 +12,8 @@ const Hero = () => {
                     <h5>Entrepreneur | Teacher | Author</h5>
                 </div>
                 <div className="flex items-center justify-center gap-5 mt-14">
-                    <Button btnValue={'Achievements'} link={'achievement'} />
-                    <Button btnValue={'My Books'} link={'books'} />
+                    <Button btnValue={'Achievements'} link={'#achievement'} color={'text-white hover:text-primaryColor-100 hover:border-primaryColor-100'} />
+                    <Button btnValue={'My Books'} link={'#books'} color={'text-white hover:text-primaryColor-100 hover:border-primaryColor-100'} />
                 </div>
 
             </div>
