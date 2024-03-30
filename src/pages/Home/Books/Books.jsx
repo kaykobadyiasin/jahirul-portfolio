@@ -1,14 +1,21 @@
 import { Link } from "react-router-dom";
 import Button from "../../../Components/Button/Button";
-import aviation from '../../../assets/books/AviationCareer.png'
-import waytosuccess from '../../../assets/books/WayToSuccess.png'
-import { book } from "../../../../public/data";
-
-
-const books = book;
+import { useEffect, useState } from "react";
 
 
 const Books = () => {
+
+    const [books, setBooks] = useState();
+
+    useEffect(() => {
+        fetch('http://localhost:5000/book')
+            .then(res => res.json())
+            .then(data => {
+                setBooks(data)
+            })
+    }, [])
+
+
     return (
         <div id="books" className="bg-[#F4FBFF] text-white py-20">
             <div className="container mx-auto">
@@ -33,7 +40,7 @@ const Books = () => {
                                     <h4 className="text-2xl font-bold text-[#151515]">TK. {item?.price}</h4>
                                 </div>
                                 <div className="absolute bottom-8 right-5">
-                                    <Button btnValue={'Order Now'} link={`book/${item?._id}`} />
+                                    <Button btnValue={'Buy Now'} link={`book/${item?._id}`} />
                                 </div>
                             </div>
                         </Link>

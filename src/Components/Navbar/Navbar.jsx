@@ -8,7 +8,7 @@ const Navbar = () => {
     return (
         <header className={`flex w-full items-center text-white bg-black dark:bg-dark`}>
             <div className="container mx-auto sm:px-0">
-                <div className="relative -mx-4 flex items-center justify-between">
+                <div className="relative flex items-center justify-between">
                     <div className="flex w-full items-center justify-between lg:px-0 px-4">
                         <div className=" max-w-full lg:px-0 px-4">
                             <a href="/" className="block w-full py-5 font-bold text-2xl">
@@ -43,7 +43,7 @@ const Navbar = () => {
                             </nav>
                         </div>
                         <div className="hidden justify-end pr-16 sm:flex lg:pr-0">
-                            <Button btnValue={'Order Now'} link={'#books'} color={'hover:text-primaryColor-100'} />
+                            <Button btnValue={'Buy Now'} link={'#books'} color={'hover:text-primaryColor-100'} />
                         </div>
                     </div>
                 </div>

@@ -1,15 +1,22 @@
 import { Link, useParams } from 'react-router-dom';
-import { book } from '../../../../../public/data';
-import Button from '../../../../Components/Button/Button';
-import { useState } from 'react';
+// import Button from '../../../../Components/Button/Button';
+import { useEffect, useState } from 'react';
 import Rating from 'react-rating';
 import { Icon } from '@iconify/react';
 
 const BookDetails = () => {
-    const books = book;
+    const [books, setBooks] = useState();
+
+    useEffect(() => {
+        fetch('http://localhost:5000/book')
+            .then(res => res.json())
+            .then(data => {
+                setBooks(data)
+            })
+    }, [])
     const { id } = useParams();
-    const singlebook = books.find(item => item?._id == id);
-    const recentBooks = books.filter(recentBook => String(recentBook._id) !== String(id));
+    const singlebook = books?.find(item => item?._id == id);
+    const recentBooks = books?.filter(recentBook => String(recentBook._id) !== String(id));
 
     const initialReviews = [
         {
@@ -39,30 +46,44 @@ const BookDetails = () => {
     return (
         <div className="min-h-screen py-20 animate__animated animate__fadeIn">
             <div className="container mx-auto p-3">
-                <div className='flex lg:flex-row flex-col gap-5'>
-                    <div className='sm:w-4/12'>
-                        <img src={singlebook?.image} className='w-full border p-3 rounded-md' alt="" />
-                    </div>
-                    <div className='w-full lg:p-5 my-5'>
-                        <h2 className='text-4xl font-semibold'>{singlebook?.name}</h2>
-                        <h4 className='my-5'>By (Author): <span className='text-primaryColor-200'>{singlebook?.author}</span></h4>
-                        <h4 className='my-5 text-2xl font-semibold'>TK. {singlebook?.price}</h4>
+                <div className='flex lg:flex-row flex-col justify-between items-start gap-5 '>
+                    <div className='flex sm:flex-row flex-col items-center gap-5 w-full'>
+                        <div className='lg:w-3/12 sm:w-6/12 w-full'>
+                            <img src={singlebook?.image} className='w-full border p-3 rounded-md' alt="" />
+                        </div>
+                        <div className='w-full lg:p-5 my-5'>
+                            <h2 className='lg:text-3xl text-2xl font-semibold'>{singlebook?.name}</h2>
+                            <h4 className='my-3'>By (Author): <Link to={'/'} className='text-primaryColor-200'>{singlebook?.author}</Link></h4>
+                            <div className='flex items-start gap-2'>
+                                <Rating
+                                    readonly
+                                    className='text-xl'
+                                    placeholderRating={5}
+                                    emptySymbol={<Icon icon="mdi:star-outline" className='text-orange-400' />}
+                                    placeholderSymbol={<Icon icon="material-symbols:star" className='text-orange-400' />}
+                                    fullSymbol={<Icon icon="material-symbols:star" className='text-orange-400' />}
+                                    onChange={(value) => setNewReview({ ...newReview, rating: value })}
+                                />
+                                <span>({reviews?.length}) Reviews</span>
+                            </div>
+                            <h4 className='my-5 text-xl font-semibold'>TK. {singlebook?.price}</h4>
 
-                        <div className='mt-5'>
-                            <button className='rounded px-7 py-3 text-white font-medium hover:text-primaryColor-200 bg-primaryColor-200 hover:bg-primaryColor-200 hover:bg-opacity-5 border border-transparent hover:border-primaryColor-200 duration-200'>
-                                Buy Now
-                            </button>
+                            <div className='mt-8'>
+                                <Link to={`order`} className='rounded px-7 py-3 text-white font-medium hover:text-primaryColor-200 bg-primaryColor-200 hover:bg-primaryColor-200 hover:bg-opacity-5 border border-transparent hover:border-primaryColor-200 duration-200'>
+                                    Order Now
+                                </Link>
+                            </div>
                         </div>
                     </div>
 
-                    <div className={`lg:w-3/12 flex flex-col gap-5 bg-[#F4FBFF] rounded-md p-5 lg:h-96 ${(recentBooks?.length == 1) ? "" : "lg:overflow-y-scroll"}`}>
+                    <div className={`lg:w-2/12 w-full flex flex-col gap-5 bg-[#F4FBFF] rounded-md p-5 lg:h-96 ${(recentBooks?.length == 1) ? "" : "lg:overflow-y-scroll"}`}>
                         <h3 className='text-center font-semibold text-primaryColor-200 rounded-md'>More Books</h3>
                         <div className='grid lg:grid-cols-1 sm:grid-cols-3 grid-cols-2 gap-5'>
                             {recentBooks
                                 ?.reverse()
                                 .slice(0, 3)
                                 .map((recentBook) => (
-                                    <div key={recentBook._id} className="border p-5 rounded-md">
+                                    <div key={recentBook._id} className="border p-3 rounded-md">
                                         <Link to={`/book/${recentBook?._id}`} className=''>
                                             <div
                                                 className=" h-full"
@@ -93,7 +114,7 @@ const BookDetails = () => {
                         <div>
                             <h3 className=' py-2.5 px-2.5 font-semibold border rounded-md bg-[#F4FBFF]'>Description:</h3>
                             <div className='my-5'>
-                                <p className='p-3 rounded-md border'>
+                                <p className='p-3 rounded-md border leading-[32px]'>
                                     আমাদের তরুণ প্রজন্ম কিংবা বায়োজ্যেষ্ঠর মাঝে একটা বড় অংশ উড়োজাহাজ কিংবা এভিয়েশন ইন্ডাস্ট্রি নিয়ে তেমন সঠিক কোন ধরনা নেই কিন্তু আছে জানার অতি আগ্রহ, প্রবল ইচ্ছা এবং কৌতুহল। এভিয়েশন সম্পর্কে সঠিক গাইডলাইন আর শত অজানা তথ্য দিবে এভিয়েশন ক্যারিয়ার বইটি। যার ফলে এভিয়েশনের প্রতি তৈরি হবে আগ্রহ, উদ্দীপনা এবং জানার প্রবল ইচ্ছে।
                                 </p>
                             </div>

@@ -1,7 +1,6 @@
 export const book = [
-    { _id: 1, image: '../src/assets/books/AviationCareer.png', name: 'এভিয়েশন ক্যারিয়ার', author: 'মোহাম্মদ জহিরুল ইসলাম', price: 275 },
-    { _id: 2, image: '../src/assets/books/WayToSuccess.png', name: 'ওয়ে টু সাকসেস', author: 'মোহাম্মদ জহিরুল ইসলাম', price: 400 },
-    
+    { _id: 1, image: 'https://i.ibb.co/y04Mmw6/Aviation-Career.png', name: 'এভিয়েশন ক্যারিয়ার', author: 'মোহাম্মদ জহিরুল ইসলাম', price: 275 },
+    { _id: 2, image: 'https://i.ibb.co/56kJVhp/Way-To-Success.png', name: 'ওয়ে টু সাকসেস', author: 'মোহাম্মদ জহিরুল ইসলাম', price: 400 },
     
 ]
 
@@ -55,7 +54,7 @@ export const blogs = [
 export const features = [
     {
         id: 1,
-        image: '../src/assets/Featrues/feature/samakal-2.png',
+        image: 'https://i.ibb.co/4fnypTH/samakal-2.png',
         url: 'https://samakal.com/todays-print-edition/tp-sahos/article/200745389/',
         date: 'Aug 23, 2024',
         title: 'Writing Skills',
@@ -63,7 +62,7 @@ export const features = [
     },
     {
         id: 2,
-        image: '../src/assets/Featrues/feature/Desh-Rupantor.jpg',
+        image: 'https://i.ibb.co/mCKzGHH/Desh-Rupantor.jpg',
         url: 'https://www.deshrupantor.com/252788/',
         date: 'Aug 23, 2024',
         title: 'Communication Skills',
@@ -71,7 +70,7 @@ export const features = [
     },
     {
         id: 3,
-        image: '../src/assets/Featrues/feature/khola-kagoj.jpg',
+        image: 'https://i.ibb.co/ZxVZSJb/khola-kagoj.jpg',
         url: '',
         date: 'Aug 23, 2024',
         title: 'Skills Development',
@@ -79,7 +78,7 @@ export const features = [
     },
     {
         id: 4,
-        image: '../src/assets/Featrues/feature/samakal-1.jpg',
+        image: 'https://i.ibb.co/4K1dQrF/samakal-1.jpg',
         url: 'https://samakal.com/feature/article/2203103529/',
         date: 'Aug 23, 2024',
         title: 'Skills Development',
@@ -87,7 +86,7 @@ export const features = [
     },
     {
         id: 5,
-        image: '../src/assets/Featrues/feature/bangladesh-news.png',
+        image: 'https://i.ibb.co/8bzq7bY/bangladesh-news.png',
         url: 'https://samakal.com/todays-print-edition/tp-sahos/article/200745389/',
         date: 'Aug 23, 2024',
         title: 'Skills Development',
@@ -95,7 +94,7 @@ export const features = [
     },
     {
         id: 6,
-        image: '../src/assets/Featrues/feature/the-business-standard.jpg',
+        image: 'https://i.ibb.co/PWQhJLx/the-business-standard.jpg',
         url: 'https://www.tbsnews.net/feature/pursuit/how-six-bangladeshi-youngsters-are-transforming-society-103912',
         date: 'Aug 23, 2024',
         title: 'Skills Development',
@@ -103,7 +102,7 @@ export const features = [
     },
     {
         id: 7,
-        image: '../src/assets/Featrues/feature/the-daily-star.png',
+        image: 'https://i.ibb.co/98KLQ62/the-daily-star.png',
         url: 'https://www.thedailystar.net/star-youth/news/igniting-confidence-across-communities-1935457',
         date: 'Aug 23, 2024',
         title: 'Skills Development',
@@ -111,7 +110,7 @@ export const features = [
     },
     {
         id: 8,
-        image: '../src/assets/Featrues/feature/financial-express.jpg',
+        image: 'https://i.ibb.co/zZ46ncq/financial-express.jpg',
         url: 'https://thefinancialexpress.com.bd/education/they-are-the-change-makers-1594831110',
         date: 'Aug 23, 2024',
         title: 'Skills Development',
