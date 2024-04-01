@@ -71,7 +71,7 @@ export const features = [
     {
         id: 3,
         image: 'https://i.ibb.co/ZxVZSJb/khola-kagoj.jpg',
-        url: '',
+        url: 'https://www.kholakagojbd.com/national/58229',
         date: 'Aug 23, 2024',
         title: 'Skills Development',
         details: 'but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised',

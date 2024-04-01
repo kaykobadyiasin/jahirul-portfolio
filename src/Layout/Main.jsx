@@ -49,10 +49,9 @@ const Main = () => {
 
                 :
                 <div className='relative'>
-                    <Navbar />
                     <Outlet />
                     <Footer />
-                    <div onClick={() => window.scrollTo(0, 0)} className='duration-200 fixed bottom-5 right-10 cursor-pointer rounded-md p-1'>
+                    <div onClick={() => window.scrollTo(0, 0)} className='duration-200 fixed bottom-10 right-10 cursor-pointer rounded-full p-1 border bg-primaryColor-100'>
                         <Icon icon='mingcute:arrows-up-line' className="text-3xl text-primaryColor-200" />
                     </div>
                 </div>

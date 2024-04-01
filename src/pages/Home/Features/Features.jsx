@@ -26,24 +26,24 @@ const news = [
         url: 'https://www.prothomalo.com/lifestyle/'
     },
     {
-        id: 1,
+        id: 2,
         image: news2,
         url: 'https://samakal.com/todays-print-edition/tp-sahos/article/200745389/'
     },
     {
-        id: 1,
+        id: 3,
         image: news3,
         url: 'https://www.deshrupantor.com/252788/'
     },
     {
-        id: 1,
+        id: 4,
         image: news4,
         url: ''
     },
     {
-        id: 1,
+        id: 5,
         image: news5,
-        url: 'https://www.thedailystar.net/star-youth/news/igniting-confidence-across-communities-1935457'
+        url: 'https://www.thedailystar.net/star-youth/news/six-changemakers-bangladesh-honoured-diana-award-2020-1924217'
     }
 ];
 
@@ -51,9 +51,9 @@ const feature = features;
 
 const Features = () => {
     return (
-        <div id="feature" className="bg-secondaryColor-100 py-20">
+        <div id="feature" className="bg-primaryColor-100 py-32">
             <div className="flex flex-col justify-center text-center items-center gap-5">
-                <SectionTitle title={'Features'} des={'Throughout my entire life I have been recognized by different organization for my relentless contribution to different sectors of our community.'} />
+                <SectionTitle titleP={'My'} title={'Features'} des={'Throughout my entire life I have been recognized by different organization for my relentless contribution to different sectors of our community.'} />
             </div>
             <div className="container mx-auto py-8">
                 <div className="xl:mx-0 mx-5">
@@ -100,7 +100,7 @@ const Features = () => {
                     </Swiper>
                 </div>
             </div>
-            <div className="py-8 border-y border-secondaryColor-200 my-32">
+            <div className=" bg-primaryColor-400 py-20 mt-28">
                 <div className="xl:mx-0 mx-5">
                     <div className="container mx-auto flex flex-wrap justify-between items-center gap-10">
                         {news?.map((item, index) => (

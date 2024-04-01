@@ -60,13 +60,13 @@ function BookOrder() {
                                 <div className="flex lg:flex-row flex-col gap-5 w-full">
                                     <input
                                         {...register('name', { required: true })}
-                                        className="w-full border border-gray-300 rounded-md p-3"
+                                        className="shadow-sm bg-primaryColor-100 border border-gray-300 text-secondaryColor-200 placeholder-secondaryColor-300 text-sm rounded-md focus:ring-primaryColor-200 focus:border-primaryColor-200 block w-full p-4 dark:bg-primaryColor-100 dark:border-secondaryColor-400 dark:placeholder-secondaryColor-300 dark:text-secondaryColor-200 dark:focus:ring-primaryColor-200 dark:focus:border-primaryColor-200 dark:shadow-sm-light"
                                         type="text"
                                         placeholder="Your Name"
                                     />
                                     <input
                                         {...register('email', { required: true })}
-                                        className="w-full border border-gray-300 rounded-md p-3"
+                                        className="shadow-sm bg-primaryColor-100 border border-gray-300 text-secondaryColor-200 placeholder-secondaryColor-300 text-sm rounded-md focus:ring-primaryColor-200 focus:border-primaryColor-200 block w-full p-4 dark:bg-primaryColor-100 dark:border-secondaryColor-400 dark:placeholder-secondaryColor-300 dark:text-secondaryColor-200 dark:focus:ring-primaryColor-200 dark:focus:border-primaryColor-200 dark:shadow-sm-light"
                                         type="email"
                                         placeholder="Your Email"
                                     />
@@ -74,33 +74,33 @@ function BookOrder() {
                                 <div className="flex lg:flex-row flex-col gap-5 w-full">
                                     <input
                                         {...register('country', { required: true })}
-                                        className="w-full border border-gray-300 rounded-md p-3"
+                                        className="shadow-sm bg-primaryColor-100 border border-gray-300 text-secondaryColor-200 placeholder-secondaryColor-300 text-sm rounded-md focus:ring-primaryColor-200 focus:border-primaryColor-200 block w-full p-4 dark:bg-primaryColor-100 dark:border-secondaryColor-400 dark:placeholder-secondaryColor-300 dark:text-secondaryColor-200 dark:focus:ring-primaryColor-200 dark:focus:border-primaryColor-200 dark:shadow-sm-light"
                                         type="text"
                                         placeholder="Country"
                                     />
                                     <input
                                         {...register('phone', { required: true })}
-                                        className="w-full border border-gray-300 rounded-md p-3"
+                                        className="shadow-sm bg-primaryColor-100 border border-gray-300 text-secondaryColor-200 placeholder-secondaryColor-300 text-sm rounded-md focus:ring-primaryColor-200 focus:border-primaryColor-200 block w-full p-4 dark:bg-primaryColor-100 dark:border-secondaryColor-400 dark:placeholder-secondaryColor-300 dark:text-secondaryColor-200 dark:focus:ring-primaryColor-200 dark:focus:border-primaryColor-200 dark:shadow-sm-light"
                                         type="text"
                                         placeholder="Your Phone"
                                     />
                                 </div>
                                 <input
                                     {...register('address', { required: true })}
-                                    className="w-full border border-gray-300 rounded-md p-3"
+                                    className="shadow-sm bg-primaryColor-100 border border-gray-300 text-secondaryColor-200 placeholder-secondaryColor-300 text-sm rounded-md focus:ring-primaryColor-200 focus:border-primaryColor-200 block w-full p-4 dark:bg-primaryColor-100 dark:border-secondaryColor-400 dark:placeholder-secondaryColor-300 dark:text-secondaryColor-200 dark:focus:ring-primaryColor-200 dark:focus:border-primaryColor-200 dark:shadow-sm-light"
                                     type="text"
                                     placeholder="Your Address"
                                 />
                                 <div className="flex lg:flex-row flex-col gap-5 w-full">
                                     <input
                                         {...register('state', { required: true })}
-                                        className="w-full border border-gray-300 rounded-md p-3"
+                                        className="shadow-sm bg-primaryColor-100 border border-gray-300 text-secondaryColor-200 placeholder-secondaryColor-300 text-sm rounded-md focus:ring-primaryColor-200 focus:border-primaryColor-200 block w-full p-4 dark:bg-primaryColor-100 dark:border-secondaryColor-400 dark:placeholder-secondaryColor-300 dark:text-secondaryColor-200 dark:focus:ring-primaryColor-200 dark:focus:border-primaryColor-200 dark:shadow-sm-light"
                                         type="text"
                                         placeholder="State"
                                     />
                                     <input
                                         {...register('post', { required: true })}
-                                        className="w-full border border-gray-300 rounded-md p-3"
+                                        className="shadow-sm bg-primaryColor-100 border border-gray-300 text-secondaryColor-200 placeholder-secondaryColor-300 text-sm rounded-md focus:ring-primaryColor-200 focus:border-primaryColor-200 block w-full p-4 dark:bg-primaryColor-100 dark:border-secondaryColor-400 dark:placeholder-secondaryColor-300 dark:text-secondaryColor-200 dark:focus:ring-primaryColor-200 dark:focus:border-primaryColor-200 dark:shadow-sm-light"
                                         type="text"
                                         placeholder="Post Code"
                                     />

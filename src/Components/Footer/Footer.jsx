@@ -3,11 +3,11 @@ import { Link } from "react-router-dom";
 
 const Footer = () => {
     return (
-        <div className="bg-secondaryColor-100">
-            <div className="container mx-auto border-t border-secondaryColor-200">
-                <div className="flex lg:flex-row flex-col justify-between items-center gap-5 text-white py-5">
+        <div className="bg-primaryColor-300">
+            <div className="container mx-auto border-t-2 border-primaryColor-200 py-5">
+                <div className="flex lg:flex-row flex-col justify-between items-center gap-5 text-secondaryColor-200 py-5">
                     <div>
-                        <a href="/#" className="block w-full font-bold text-2xl text-white">
+                        <a href="/#" className="block w-full font-bold text-2xl text-secondaryColor-200">
                             Jahirul
                             <sup className="text-3xl font-bold text-primaryColor-200">.</sup>
                         </a>
