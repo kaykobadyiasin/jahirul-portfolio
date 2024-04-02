@@ -1,3 +1,4 @@
+@import "keep-react/css";
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
@@ -35,14 +36,29 @@
     object-fit: cover;
 }
 
-.swiper-pagination-fraction, .swiper-pagination-custom, .swiper-horizontal > .swiper-pagination-bullets, .swiper-pagination-bullets.swiper-pagination-horizontal {
-    
+.swiper-pagination-fraction,
+.swiper-pagination-custom,
+.swiper-horizontal>.swiper-pagination-bullets,
+.swiper-pagination-bullets.swiper-pagination-horizontal {
+
     bottom: 20px !important;
 }
 
-.swiper-pagination-bullet{
+.swiper-pagination-bullet {
     background: aliceblue !important;
 }
-.swiper-pagination-bullet .swiper-pagination-bullet-active{
+
+.swiper-pagination-bullet .swiper-pagination-bullet-active {
     background: #006ACB !important;
+}
+
+
+/* admin dashboard */
+
+.admin_Menu .active {
+    background-color: #F4FBFF;
+    border: 1px solid #D4D4D4;
+    padding: 0 10px;
+    border-radius: 5px;
+    transition-duration: .3s;
 }

@@ -4,6 +4,7 @@ import { Link, useLocation } from "react-router-dom";
 const Footer = () => {
     const locationPath = useLocation()
 
+
     return (
         <div className="bg-primaryColor-300">
             <div className={`container mx-auto ${locationPath.pathname === '/' ? 'border-t-2' : 'border-none'} border-primaryColor-200 py-5`}>
