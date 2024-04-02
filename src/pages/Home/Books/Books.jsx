@@ -14,7 +14,7 @@ const Books = () => {
         fetch(`${apiURL}/book`)
             .then(res => res.json())
             .then(data => {
-                if (data?.length) {
+                if (data?.length > 0) {
                     setLoading(true)
                     setBooks(data)
                     setLoading(false)
