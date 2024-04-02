@@ -2,12 +2,13 @@
 import { useForm } from 'react-hook-form';
 import { useParams } from 'react-router-dom';
 import { useEffect, useState } from 'react';
+import { apiURL } from '../../../../ApiService/api';
 
 function BookOrder() {
     const [books, setBooks] = useState();
 
     useEffect(() => {
-        fetch('https://jahirul-islam-portfolio-api.onrender.com/book')
+        fetch(`${apiURL}/book`)
             .then(res => res.json())
             .then(data => {
                 setBooks(data)
@@ -21,7 +22,7 @@ function BookOrder() {
     const onSubmit = (data) => {
         reset()
         data.bookId = id;
-        fetch('https://jahirul-islam-portfolio-api.onrender.com/order', {
+        fetch(`${apiURL}/order`, {
             method: "POST",
             headers: { "content-type": "application/json" },
             body: JSON.stringify(data)

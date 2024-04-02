@@ -3,12 +3,15 @@ import { Link, useParams } from 'react-router-dom';
 import { useEffect, useState } from 'react';
 import Rating from 'react-rating';
 import { Icon } from '@iconify/react';
+import { apiURL } from '../../../../ApiService/api';
 
 const BookDetails = () => {
     const [books, setBooks] = useState();
 
+    
+
     useEffect(() => {
-        fetch('https://jahirul-islam-portfolio-api.onrender.com/book')
+        fetch(`${apiURL}/book`)
             .then(res => res.json())
             .then(data => {
                 setBooks(data)
