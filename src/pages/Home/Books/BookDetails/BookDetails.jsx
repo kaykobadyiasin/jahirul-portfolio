@@ -4,11 +4,10 @@ import { useEffect, useState } from 'react';
 import Rating from 'react-rating';
 import { Icon } from '@iconify/react';
 import { apiURL } from '../../../../ApiService/api';
+import Breadcrumb from '../../../../Components/Breadcrumb/Breadcrumb';
 
 const BookDetails = () => {
     const [books, setBooks] = useState();
-
-    
 
     useEffect(() => {
         fetch(`${apiURL}/book`)
@@ -20,6 +19,13 @@ const BookDetails = () => {
     const { id } = useParams();
     const singlebook = books?.find(item => item?._id == id);
     const recentBooks = books?.filter(recentBook => String(recentBook._id) !== String(id));
+
+    const breadcrumbItems = [
+        { text: 'Home', url: '/' },
+        { text: 'Books', url: '/#books' },
+        { text: 'Books Details', url: `/${singlebook?._id}` },
+    ];
+
 
     const initialReviews = [
         {
@@ -49,6 +55,9 @@ const BookDetails = () => {
     return (
         <div className="min-h-screen py-20 animate__animated animate__fadeIn">
             <div className="container mx-auto p-3">
+                <div className='mb-10'>
+                    <Breadcrumb items={breadcrumbItems} ></Breadcrumb>
+                </div>
                 <div className='flex lg:flex-row flex-col justify-between items-start gap-5 '>
                     <div className='flex sm:flex-row flex-col items-center gap-5 w-full'>
                         <div className='lg:w-3/12 sm:w-6/12 w-full'>

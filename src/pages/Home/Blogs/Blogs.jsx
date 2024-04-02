@@ -12,7 +12,7 @@ const Blogs = () => {
 
     return (
         <div id="blogs" className="bg-primaryColor-100 pb-32">
-            <div className="flex flex-col justify-center text-center items-center gap-5">
+            <div className="flex flex-col justify-center text-center items-center gap-5 xl:mx-0 mx-5">
                 <SectionTitle
                     title={'My'}
                     titleC={'Blogs'}

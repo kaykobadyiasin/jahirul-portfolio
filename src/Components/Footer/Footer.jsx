@@ -1,10 +1,12 @@
 import { Icon } from "@iconify/react";
-import { Link } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
 
 const Footer = () => {
+    const locationPath = useLocation()
+
     return (
         <div className="bg-primaryColor-300">
-            <div className="container mx-auto border-t-2 border-primaryColor-200 py-5">
+            <div className={`container mx-auto ${locationPath.pathname === '/' ? 'border-t-2' : 'border-none'} border-primaryColor-200 py-5`}>
                 <div className="flex lg:flex-row flex-col justify-between items-center gap-5 text-secondaryColor-200 py-5">
                     <div>
                         <a href="/#" className="block w-full font-bold text-2xl text-secondaryColor-200">

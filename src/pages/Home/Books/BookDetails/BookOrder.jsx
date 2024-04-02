@@ -3,6 +3,7 @@ import { useForm } from 'react-hook-form';
 import { useParams } from 'react-router-dom';
 import { useEffect, useState } from 'react';
 import { apiURL } from '../../../../ApiService/api';
+import Breadcrumb from '../../../../Components/Breadcrumb/Breadcrumb';
 
 function BookOrder() {
     const [books, setBooks] = useState();
@@ -17,6 +18,12 @@ function BookOrder() {
     const { id } = useParams();
     const orderbook = books?.find(item => item?._id == id);
 
+    const breadcrumbItems = [
+        { text: 'Home', url: '/' },
+        { text: 'Book Details', url: `/book/${orderbook?._id}` },
+        { text: 'Order Details', url: `book/${orderbook?._id}/order` },
+    ];
+
     const { register, handleSubmit, reset, formState: { errors } } = useForm();
 
     const onSubmit = (data) => {
@@ -27,16 +34,19 @@ function BookOrder() {
             headers: { "content-type": "application/json" },
             body: JSON.stringify(data)
         })
-        .then(res => res.json())
-        .then(result => {
-            window.location.replace(result.url)
-            console.log(result)
-        })
+            .then(res => res.json())
+            .then(result => {
+                window.location.replace(result.url)
+                console.log(result)
+            })
     };
 
     return (
         <div className='min-h-screen'>
             <div className='container mx-auto py-20'>
+                <div className='mb-10'>
+                    <Breadcrumb items={breadcrumbItems} ></Breadcrumb>
+                </div>
                 <div className='flex sm:flex-row flex-col gap-5 lg:mx-0 mx-5'>
                     <div className='w-full'>
                         <div className='bg-[#F4FBFF] rounded-md w-full flex justify-between mb-5'>
