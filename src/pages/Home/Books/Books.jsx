@@ -39,7 +39,7 @@ const Books = () => {
                             height={100}
                             width={100}
                             radius={5}
-                            color="#ffffff"
+                            color="#008EFF"
                             ariaLabel="ball-triangle-loading"
                             wrapperStyle={{}}
                             wrapperClass=""
