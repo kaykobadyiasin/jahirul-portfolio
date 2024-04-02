@@ -8,7 +8,7 @@ import { BallTriangle } from "react-loader-spinner";
 const Books = () => {
 
     const [books, setBooks] = useState();
-    const [loading, setLoading] = useState(true);
+    const [loading, setLoading] = useState();
 
     useEffect(() => {
         fetch(`${apiURL}/book`)
