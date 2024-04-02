@@ -8,7 +8,7 @@ const Books = () => {
     const [books, setBooks] = useState();
 
     useEffect(() => {
-        fetch('http://localhost:5000/book')
+        fetch('https://jahirul-islam-portfolio-api.onrender.com/book')
             .then(res => res.json())
             .then(data => {
                 setBooks(data)
