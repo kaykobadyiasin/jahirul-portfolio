@@ -1,5 +1,6 @@
 import { Link, useParams } from "react-router-dom";
 import { blogs } from "../../../../public/data";
+import Breadcrumb from "../../../Components/Breadcrumb/Breadcrumb";
 
 const BlogDetails = () => {
 
@@ -8,6 +9,12 @@ const BlogDetails = () => {
     const singleBlog = blog.find(item => item?._id == id);
     const recentBlogs = blog.filter(recentBlog => String(recentBlog._id) !== String(id));
 
+    const breadcrumbItems = [
+        { text: 'Home', url: '/' },
+        { text: 'Blogs', url: '/#blogs' },
+        { text: 'Blogs Details', url: `/${singleBlog?._id}` },
+    ];
+
     return (
         <div className="min-h-screen">
             <div>
@@ -15,8 +22,11 @@ const BlogDetails = () => {
             </div>
 
             <div className="container mx-auto py-20">
+                <div className='mb-10 xl:mx-0 mx-5'>
+                    <Breadcrumb items={breadcrumbItems} ></Breadcrumb>
+                </div>
                 <div>
-                    <div className='flex lg:flex-row flex-col gap-5'>
+                    <div className='flex lg:flex-row flex-col gap-8 xl:mx-0 mx-5'>
                         <div className='w-full'>
                             <img src={singleBlog?.image} className='w-full h-[500px] object-cover object-bottom rounded-md' alt="" />
                             <div className="mt-10">
@@ -26,7 +36,6 @@ const BlogDetails = () => {
                                     The standard chunk of Lorem Ipsum used since the 1500s is reproduced below for those interested. Sections 1.10.32 and 1.10.33 from "de Finibus Bonorum et Malorum" by Cicero are also reproduced in their exact original form, accompanied by English versions from the 1914 translation by H. Rackham.</p>
                             </div>
                         </div>
-
                         <div className={`lg:w-3/12 flex flex-col gap-5 bg-[#F4FBFF] rounded-md p-5
                         ${(recentBlogs?.length <= 6) ? "" : "lg:h-[600px] lg:overflow-y-scroll"}`}
                         >
