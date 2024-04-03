@@ -38,9 +38,9 @@ const Optional = () => {
                             className={({ selected }) =>
                                 classNames(
                                     ' py-2.5 px-2.5 text-sm font-medium leading-5',
-                                    ' focus:outline-none hover:bg-[#F4FBFF] text-primaryColor-200 duration-200',
+                                    ' focus:outline-none hover:bg-primaryColor-300 text-primaryColor-200 duration-200',
                                     selected
-                                        ? 'bg-[#F4FBFF] text-primaryColor-200 border-opacity-20 border-b-0 border border-primaryColor-200 rounded-t'
+                                        ? 'bg-primaryColor-300 text-primaryColor-200 border-opacity-20 border-b-0 border border-primaryColor-200 rounded-t'
                                         : 'text-blue-100 hover:bg-white/[0.12] shadow border border-transparent'
                                 )
                             }
@@ -94,7 +94,7 @@ const Optional = () => {
 
 
 
-            {/* <h3 className='bg-[#F4FBFF] py-2.5 px-2.5 text-sm font-medium leading-5 inline-block rounded-t shadow border border-primaryColor-200 border-opacity-20 border-b-0 text-primaryColor-200'>Description</h3>
+            {/* <h3 className='bg-primaryColor-300 py-2.5 px-2.5 text-sm font-medium leading-5 inline-block rounded-t shadow border border-primaryColor-200 border-opacity-20 border-b-0 text-primaryColor-200'>Description</h3>
                         <hr /> */}
 
 

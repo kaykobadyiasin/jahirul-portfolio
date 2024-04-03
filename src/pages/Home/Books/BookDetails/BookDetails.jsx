@@ -88,7 +88,7 @@ const BookDetails = () => {
                         </div>
                     </div>
 
-                    <div className={`lg:w-2/12 w-full flex flex-col gap-5 bg-[#F4FBFF] rounded-md p-5 lg:h-96 ${(recentBooks?.length == 1) ? "" : "lg:overflow-y-scroll"}`}>
+                    <div className={`lg:w-2/12 w-full flex flex-col gap-5 bg-primaryColor-300 rounded-md p-5 lg:h-96 ${(recentBooks?.length == 1) ? "" : "lg:overflow-y-scroll"}`}>
                         <h3 className='text-center font-semibold text-primaryColor-200 rounded-md'>More Books</h3>
                         <div className='grid lg:grid-cols-1 sm:grid-cols-3 grid-cols-2 gap-5'>
                             {recentBooks
@@ -124,7 +124,7 @@ const BookDetails = () => {
                 <div className='flex sm:flex-row flex-col sm:gap-8 gap-5 mt-8'>
                     <div className='w-full rounded-md'>
                         <div>
-                            <h3 className=' py-2.5 px-2.5 font-semibold border rounded-md bg-[#F4FBFF]'>Description:</h3>
+                            <h3 className=' py-2.5 px-2.5 font-semibold border rounded-md bg-primaryColor-300'>Description:</h3>
                             <div className='my-5'>
                                 <p className='p-3 rounded-md border leading-[32px]'>
                                     আমাদের তরুণ প্রজন্ম কিংবা বায়োজ্যেষ্ঠর মাঝে একটা বড় অংশ উড়োজাহাজ কিংবা এভিয়েশন ইন্ডাস্ট্রি নিয়ে তেমন সঠিক কোন ধরনা নেই কিন্তু আছে জানার অতি আগ্রহ, প্রবল ইচ্ছা এবং কৌতুহল। এভিয়েশন সম্পর্কে সঠিক গাইডলাইন আর শত অজানা তথ্য দিবে এভিয়েশন ক্যারিয়ার বইটি। যার ফলে এভিয়েশনের প্রতি তৈরি হবে আগ্রহ, উদ্দীপনা এবং জানার প্রবল ইচ্ছে।
@@ -134,7 +134,7 @@ const BookDetails = () => {
 
                     </div>
                     <div className='w-full rounded-md'>
-                        <h3 className=' py-2.5 px-2.5 font-semibold border rounded-md bg-[#F4FBFF]'>Reviews:</h3>
+                        <h3 className=' py-2.5 px-2.5 font-semibold border rounded-md bg-primaryColor-300'>Reviews:</h3>
                         <div className='my-5 px-1'>
                             <div className='rounded-md'>
                                 {reviews.map((review, index) => (
@@ -159,7 +159,7 @@ const BookDetails = () => {
 
                             </div>
                             <div className="flex flex-col mt-5">
-                                <h3 className=' py-2.5 px-2.5 font-semibold border rounded-md bg-[#F4FBFF]'>Rate this book</h3>
+                                <h3 className=' py-2.5 px-2.5 font-semibold border rounded-md bg-primaryColor-300'>Rate this book</h3>
                                 <Rating
                                     className='my-3 text-2xl'
                                     fractions={2}
@@ -200,7 +200,7 @@ const BookDetails = () => {
                                     />
                                 </div>
                                 <div className="flex justify-end mt-5">
-                                    <button className="bg-primaryColor-200 hover:bg-transparent border border-transparent hover:border-primaryColor-200 hover:text-primaryColor-200 text-white py-2 px-4 rounded-md hover:bg-[#F4FBFF] duration-200" type='submit' onClick={addReview}>
+                                    <button className="bg-primaryColor-200 hover:bg-transparent border border-transparent hover:border-primaryColor-200 hover:text-primaryColor-200 text-white py-2 px-4 rounded-md hover:bg-primaryColor-300 duration-200" type='submit' onClick={addReview}>
                                         Submit Review
                                     </button>
                                 </div>

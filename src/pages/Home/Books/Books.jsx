@@ -8,17 +8,15 @@ import { BallTriangle } from "react-loader-spinner";
 const Books = () => {
 
     const [books, setBooks] = useState();
-    const [loading, setLoading] = useState();
+    const [loading, setLoading] = useState(null);
 
     useEffect(() => {
         fetch(`${apiURL}/book`)
             .then(res => res.json())
             .then(data => {
-                if (data?.length > 0) {
-                    setLoading(true)
-                    setBooks(data)
-                    setLoading(false)
-                }
+                setLoading(true)
+                setBooks(data)
+                setLoading(false)
             })
     }, [])
 
@@ -34,30 +32,48 @@ const Books = () => {
                 </div>
 
                 {loading ?
-                    <div className="flex justify-center py-5 animate__animated animate__heartBeat  animate__slower 3s">
-                        <BallTriangle
-                            height={100}
-                            width={100}
-                            radius={5}
-                            color="#008EFF"
-                            ariaLabel="ball-triangle-loading"
-                            wrapperStyle={{}}
-                            wrapperClass=""
-                            visible={true}
-                        />
+                    <div className="flex flex-col justify-center items-center text-primaryColor-200">
+                        <div className="animate__animated animate__heartBeat  animate__slower 3s">
+                            <BallTriangle
+                                height={200}
+                                width={80}
+                                radius={5}
+                                color="#008EFF"
+                                ariaLabel="ball-triangle-loading"
+                                wrapperStyle={{}}
+                                wrapperClass=""
+                                visible={true}
+                            />
+                        </div>
+                        {/* <h2 className="mt-10 font-semibold text-xl animate__animated animate__flipInX infinite slow	800ms">Welcome to Matribhumi Smart City</h2> */}
                     </div>
                     :
-                    <div className=" grid 2xl:grid-cols-2 lg:grid-cols-2 sm:grid-cols-1 gap-5 sm:px-0 px-5">
+                    <div className="grid 2xl:grid-cols-2 lg:grid-cols-2 sm:grid-cols-1 gap-5 sm:px-0 px-5">
                         {books?.map((item, index) => (
                             <Link key={index} to={`book/${item?._id}`}>
                                 <div className="w-full cursor-pointer flex items-center gap-5 bg-primaryColor-100 border border-transparent hover:border-primaryColor-200 duration-200 rounded-md p-5 shadow-md relative">
-                                    <div>
-                                        <img src={item?.image} alt="" />
+                                    <div className="w-48">
+                                        {loading ?
+                                            <div className="flex justify-center py-5 animate__animated animate__heartBeat  animate__slower 3s">
+                                                <BallTriangle
+                                                    height={100}
+                                                    width={100}
+                                                    radius={5}
+                                                    color="#008EFF"
+                                                    ariaLabel="ball-triangle-loading"
+                                                    wrapperStyle={{}}
+                                                    wrapperClass=""
+                                                    visible={true}
+                                                />
+                                            </div>
+                                            :
+                                            <img src={item?.image} alt="" className="w-full rounded-md" />
+                                        }
                                     </div>
-                                    <div>
-                                        <h3 className="text-2xl font-bold text-[#151515]">{item?.name}</h3>
-                                        <h6 className="my-3 text-primaryColor-200">{item?.author}</h6>
-                                        <h4 className="text-2xl font-bold text-[#151515]">TK. {item?.price}</h4>
+                                    <div className="w-full">
+                                        <h3 className="sm:text-2xl font-bold text-[#151515]">{item?.name}</h3>
+                                        <h6 className="my-3 text-primaryColor-200 xl:text-lg lg:text-md text-sm">{item?.author}</h6>
+                                        <h4 className="sm:text-2xl text-xl font-bold text-[#151515]">TK. {item?.price}</h4>
                                     </div>
                                     <div className="absolute bottom-8 right-5">
                                         <Button btnValue={'Buy Now'} link={`book/${item?._id}`} color={'text-primaryColor-100'} />

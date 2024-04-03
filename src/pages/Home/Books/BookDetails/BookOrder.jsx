@@ -49,7 +49,7 @@ function BookOrder() {
                 </div>
                 <div className='flex sm:flex-row flex-col gap-5 lg:mx-0 mx-5'>
                     <div className='w-full'>
-                        <div className='bg-[#F4FBFF] rounded-md w-full flex justify-between mb-5'>
+                        <div className='bg-primaryColor-300 rounded-md w-full flex justify-between mb-5'>
                             <h3 className='text-lg font-semibold py-2 px-5'>Total Price</h3>
                             <span className='text-lg font-semibold py-2 px-5'>TK. {orderbook?.price}</span>
                         </div>
@@ -64,7 +64,7 @@ function BookOrder() {
                         </div>
                     </div>
                     <div className='w-full'>
-                        <h3 className='text-lg font-semibold py-2 px-5 bg-[#F4FBFF] rounded-md'>Order Form </h3>
+                        <h3 className='text-lg font-semibold py-2 px-5 bg-primaryColor-300 rounded-md'>Order Form </h3>
                         <p className='my-5 text-gray-600'>*** Please fill all the required fields and select your desired book! ***</p>
                         <form onSubmit={handleSubmit(onSubmit)}>
                             <div className="flex gap-5 flex-col">
@@ -120,7 +120,7 @@ function BookOrder() {
                             </div>
                             <div className="flex justify-end mt-5">
                                 <button
-                                    className="bg-primaryColor-200 hover:bg-transparent border border-transparent hover:border-primaryColor-200 hover:text-primaryColor-200 text-white py-2 px-4 rounded-md hover:bg-[#F4FBFF] duration-200"
+                                    className="bg-primaryColor-200 hover:bg-transparent border border-transparent hover:border-primaryColor-200 hover:text-primaryColor-200 text-white py-2 px-4 rounded-md hover:bg-primaryColor-300 duration-200"
                                     type="submit"
                                 >
                                     Payment

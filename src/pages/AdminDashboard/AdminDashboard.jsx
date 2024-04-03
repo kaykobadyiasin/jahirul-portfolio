@@ -1,13 +1,6 @@
 import { Icon } from "@iconify/react";
 import {
-    ArchiveTray,
-    Chat,
-    Gear,
-    List,
-    MagnifyingGlass,
-    ShoppingCart,
-    SignIn,
-    Users,
+    List
 } from 'phosphor-react'
 import { Avatar, Button, Divider, Input, Sidebar, Typography } from 'keep-react'
 import { Link, NavLink, Outlet } from 'react-router-dom';
@@ -19,7 +12,7 @@ const AdminDashboard = () => {
         <div className="min-h-screen">
             <div className='flex'>
                 <div>
-                    <Sidebar className='min-h-screen rounded-none'>
+                    <Sidebar className='h-full min-h-screen rounded-none'>
                         <Sidebar.Header className="space-y-2.5">
                             <div className="flex items-center justify-between">
                                 <Typography variant="heading-5" className="font-bold text-primaryColor-200">
@@ -32,12 +25,11 @@ const AdminDashboard = () => {
                             <div>
                                 <fieldset className="relative max-w-md">
                                     <Input placeholder="Search here" className="ps-11" />
-
                                 </fieldset>
                             </div>
                         </Sidebar.Header>
                         <Sidebar.Body className="flex flex-col gap-2 admin_Menu">
-                            <NavLink className='hover:bg-primaryColor-300 border border-transparent' to={'admin'} >
+                            <NavLink className='hover:bg-primaryColor-300 border border-transparent' to={'dashboard'} active >
                                 <Sidebar.Item className="">
                                     <Icon icon='radix-icons:dashboard' className="text-2xl" />
                                     Dashboard
@@ -79,7 +71,7 @@ const AdminDashboard = () => {
                             </Sidebar.Item>
                         </Sidebar.Body>
                         <Divider className="my-3" />
-                        <Sidebar.Footer className="flex items-center gap-3">
+                        <Sidebar.Footer className="flex items-center gap-3 mt-5">
                             <div className='w-10 h-10' >
                                 <img src={admin} className='w-full h-full object-cover object-top rounded-md scale-125' />
                             </div>

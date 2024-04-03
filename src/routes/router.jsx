@@ -14,6 +14,7 @@ import ManageBook from "../pages/AdminDashboard/ManageBook/ManageBook";
 import ManageBlog from "../pages/AdminDashboard/ManageBlog/ManageBlog";
 import ManageFeature from "../pages/AdminDashboard/ManageFeature/ManageFeature";
 import ManageMessage from "../pages/AdminDashboard/ManageMessage/ManageMessage";
+import Dashboard from "../pages/AdminDashboard/Dashboard/Dashboard";
 
 const router = createBrowserRouter([
     {
@@ -51,8 +52,8 @@ const router = createBrowserRouter([
         element: <AdminDashboard />,
         children: [
             {
-                path: 'admin',
-                element: <AdminDashboard />
+                path: 'dashboard',
+                element: <Dashboard />
             },
             {
                 path: 'manage-massage',
