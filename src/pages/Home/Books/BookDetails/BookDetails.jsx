@@ -5,15 +5,19 @@ import Rating from 'react-rating';
 import { Icon } from '@iconify/react';
 import { apiURL } from '../../../../ApiService/api';
 import Breadcrumb from '../../../../Components/Breadcrumb/Breadcrumb';
+import { Skeleton } from 'keep-react';
 
 const BookDetails = () => {
     const [books, setBooks] = useState();
+    const [loading, setLoading] = useState(true);
 
     useEffect(() => {
         fetch(`${apiURL}/book`)
             .then(res => res.json())
             .then(data => {
+                setLoading(true)
                 setBooks(data)
+                setLoading(false)
             })
     }, [])
     const { id } = useParams();
@@ -53,74 +57,93 @@ const BookDetails = () => {
     };
 
     return (
-        <div className="min-h-screen py-20 animate__animated animate__fadeIn">
+        <div className="min-h-screen py-20 ">
             <div className="container mx-auto p-3">
                 <div className='mb-10'>
                     <Breadcrumb items={breadcrumbItems} ></Breadcrumb>
                 </div>
-                <div className='flex lg:flex-row flex-col justify-between items-start gap-5 '>
-                    <div className='flex sm:flex-row flex-col items-center gap-5 w-full'>
-                        <div className='lg:w-3/12 sm:w-6/12 w-full'>
-                            <img src={singlebook?.image} className='w-full border p-3 rounded-md' alt="" />
-                        </div>
-                        <div className='w-full lg:p-5 my-5'>
-                            <h2 className='lg:text-3xl text-2xl font-semibold'>{singlebook?.name}</h2>
-                            <h4 className='my-3'>By (Author): <Link to={'/'} className='text-primaryColor-200'>{singlebook?.author}</Link></h4>
-                            <div className='flex items-start gap-2'>
-                                <Rating
-                                    readonly
-                                    className='text-xl'
-                                    placeholderRating={5}
-                                    emptySymbol={<Icon icon="mdi:star-outline" className='text-orange-400' />}
-                                    placeholderSymbol={<Icon icon="material-symbols:star" className='text-orange-400' />}
-                                    fullSymbol={<Icon icon="material-symbols:star" className='text-orange-400' />}
-                                    onChange={(value) => setNewReview({ ...newReview, rating: value })}
-                                />
-                                <span>({reviews?.length}) Reviews</span>
+                {loading ?
+                    <Skeleton className="max-w-xl space-y-2.5 mt-5">
+                        <Skeleton.Line className="h-4 w-full rounded-md" />
+                        <Skeleton.Line className="h-4 w-full rounded-md" />
+                        <Skeleton.Line className="h-4 w-3/5 rounded-md" />
+                        <Skeleton.Line className="h-4 w-4/5 rounded-md" />
+                        <Skeleton.Line className="h-10 w-2/5 rounded-md" />
+                    </Skeleton>
+                    :
+                    <div className='flex lg:flex-row flex-col justify-between items-start gap-5 '>
+                        <div className='flex sm:flex-row flex-col items-center gap-5 w-full'>
+                            <div className='lg:w-3/12 sm:w-6/12 w-full'>
+                                <img src={singlebook?.image} className='w-full border p-3 rounded-md' alt="" />
                             </div>
-                            <h4 className='my-5 text-xl font-semibold'>TK. {singlebook?.price}</h4>
+                            <div className='w-full lg:p-5 my-5'>
+                                <h2 className='lg:text-3xl text-2xl font-semibold'>{singlebook?.name}</h2>
+                                <h4 className='my-3'>By (Author): <Link to={'/'} className='text-primaryColor-200'>{singlebook?.author}</Link></h4>
+                                <div className='flex items-start gap-2'>
+                                    <Rating
+                                        readonly
+                                        className='text-xl'
+                                        placeholderRating={5}
+                                        emptySymbol={<Icon icon="mdi:star-outline" className='text-orange-400' />}
+                                        placeholderSymbol={<Icon icon="material-symbols:star" className='text-orange-400' />}
+                                        fullSymbol={<Icon icon="material-symbols:star" className='text-orange-400' />}
+                                        onChange={(value) => setNewReview({ ...newReview, rating: value })}
+                                    />
+                                    <span>({reviews?.length}) Reviews</span>
+                                </div>
+                                <h4 className='my-5 text-xl font-semibold'>TK. {singlebook?.price}</h4>
 
-                            <div className='mt-8'>
-                                <Link to={`order`} className='rounded px-7 py-3 text-white font-medium hover:text-primaryColor-200 bg-primaryColor-200 hover:bg-primaryColor-200 hover:bg-opacity-5 border border-transparent hover:border-primaryColor-200 duration-200'>
-                                    Order Now
-                                </Link>
+                                <div className='mt-8'>
+                                    <Link to={`order`} className='rounded px-7 py-3 text-white font-medium hover:text-primaryColor-200 bg-primaryColor-200 hover:bg-primaryColor-200 hover:bg-opacity-5 border border-transparent hover:border-primaryColor-200 duration-200'>
+                                        Order Now
+                                    </Link>
+                                </div>
                             </div>
                         </div>
-                    </div>
 
-                    <div className={`lg:w-2/12 w-full flex flex-col gap-5 bg-primaryColor-300 rounded-md p-5 lg:h-96 ${(recentBooks?.length == 1) ? "" : "lg:overflow-y-scroll"}`}>
-                        <h3 className='text-center font-semibold text-primaryColor-200 rounded-md'>More Books</h3>
-                        <div className='grid lg:grid-cols-1 sm:grid-cols-3 grid-cols-2 gap-5'>
-                            {recentBooks
-                                ?.reverse()
-                                .slice(0, 3)
-                                .map((recentBook) => (
-                                    <div key={recentBook._id} className="border p-3 rounded-md">
-                                        <Link to={`/book/${recentBook?._id}`} className=''>
-                                            <div
-                                                className=" h-full"
-                                            >
-                                                <img
-                                                    src={recentBook?.image}
-                                                    alt="Matribhumi City"
-                                                    className="w-full h-full object-contain"
-                                                />
-                                            </div>
-                                            <div className="">
-                                                <h6 className="text-lg font-medium">{recentBook?.title}</h6>
-                                                <p className="text-sm text-gray-600">
-                                                    {recentBook?.description &&
-                                                        recentBook?.description.length > 80
-                                                        ? `${recentBook?.description.substring(0, 80)}...`
-                                                        : recentBook?.description}
-                                                </p>
-                                            </div>
-                                        </Link>
-                                    </div>
-                                ))}
+                        <div className={`lg:w-2/12 w-full flex flex-col gap-5 bg-primaryColor-300 rounded-md p-5 lg:h-96 ${(recentBooks?.length == 1) ? "" : "lg:overflow-y-scroll"}`}>
+                            <h3 className='text-center font-semibold text-primaryColor-200 rounded-md'>More Books</h3>
+                            <div className='grid lg:grid-cols-1 sm:grid-cols-3 grid-cols-2 gap-5'>
+                                {recentBooks
+                                    ?.reverse()
+                                    .slice(0, 3)
+                                    .map((recentBook) => (
+                                        <div key={recentBook._id} className="border p-3 rounded-md">
+                                            <Link to={`/book/${recentBook?._id}`} className=''>
+                                                <div
+                                                    className=" h-full"
+                                                >
+                                                    {loading ?
+                                                        <Skeleton className="max-w-xl space-y-2.5 mt-5">
+                                                            <Skeleton.Line className="h-4 w-full rounded-md" />
+                                                            <Skeleton.Line className="h-4 w-full rounded-md" />
+                                                            <Skeleton.Line className="h-4 w-3/5 rounded-md" />
+                                                            <Skeleton.Line className="h-4 w-4/5 rounded-md" />
+                                                            <Skeleton.Line className="h-10 w-2/5 rounded-md" />
+                                                        </Skeleton>
+                                                        :
+                                                        <img
+                                                            src={recentBook?.image}
+                                                            alt="Matribhumi City"
+                                                            className="w-full h-full object-contain"
+                                                        />
+                                                    }
+                                                </div>
+                                                <div className="">
+                                                    <h6 className="text-lg font-medium">{recentBook?.title}</h6>
+                                                    <p className="text-sm text-gray-600">
+                                                        {recentBook?.description &&
+                                                            recentBook?.description.length > 80
+                                                            ? `${recentBook?.description.substring(0, 80)}...`
+                                                            : recentBook?.description}
+                                                    </p>
+                                                </div>
+                                            </Link>
+                                        </div>
+                                    ))}
+                            </div>
                         </div>
-                    </div>
-                </div>
+                    </div>}
                 <div className='flex sm:flex-row flex-col sm:gap-8 gap-5 mt-8'>
                     <div className='w-full rounded-md'>
                         <div>

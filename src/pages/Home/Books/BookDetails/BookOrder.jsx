@@ -4,15 +4,19 @@ import { useParams } from 'react-router-dom';
 import { useEffect, useState } from 'react';
 import { apiURL } from '../../../../ApiService/api';
 import Breadcrumb from '../../../../Components/Breadcrumb/Breadcrumb';
+import { Skeleton } from 'keep-react';
 
 function BookOrder() {
     const [books, setBooks] = useState();
+    const [loading, setLoading] = useState(true);
 
     useEffect(() => {
         fetch(`${apiURL}/book`)
             .then(res => res.json())
             .then(data => {
+                setLoading(true)
                 setBooks(data)
+                setLoading(false)
             })
     }, [])
     const { id } = useParams();
@@ -48,21 +52,31 @@ function BookOrder() {
                     <Breadcrumb items={breadcrumbItems} ></Breadcrumb>
                 </div>
                 <div className='flex sm:flex-row flex-col gap-5 lg:mx-0 mx-5'>
-                    <div className='w-full'>
-                        <div className='bg-primaryColor-300 rounded-md w-full flex justify-between mb-5'>
-                            <h3 className='text-lg font-semibold py-2 px-5'>Total Price</h3>
-                            <span className='text-lg font-semibold py-2 px-5'>TK. {orderbook?.price}</span>
-                        </div>
-                        <div className='flex items-center gap-5 border p-2'>
-                            <div>
-                                <img src={orderbook?.image} className='w-20' alt="" />
+                    {loading ?
+                        <Skeleton className="max-w-xl space-y-2.5 mt-5">
+                            <Skeleton.Line className="h-4 w-full rounded-md" />
+                            <Skeleton.Line className="h-4 w-full rounded-md" />
+                            <Skeleton.Line className="h-4 w-3/5 rounded-md" />
+                            <Skeleton.Line className="h-4 w-4/5 rounded-md" />
+                            <Skeleton.Line className="h-10 w-2/5 rounded-md" />
+                        </Skeleton>
+                        :
+                        <div className='w-full'>
+                            <div className='bg-primaryColor-300 rounded-md w-full flex justify-between mb-5'>
+                                <h3 className='text-lg font-semibold py-2 px-5'>Total Price</h3>
+                                <span className='text-lg font-semibold py-2 px-5'>TK. {orderbook?.price}</span>
                             </div>
-                            <div>
-                                <h3 className='text-lg font-semibold mb-2'>{orderbook?.name}</h3>
-                                <h4>TK. {orderbook?.price}</h4>
+                            <div className='flex items-center gap-5 border p-2'>
+                                <div>
+                                    <img src={orderbook?.image} className='w-20' alt="" />
+                                </div>
+                                <div>
+                                    <h3 className='text-lg font-semibold mb-2'>{orderbook?.name}</h3>
+                                    <h4>TK. {orderbook?.price}</h4>
+                                </div>
                             </div>
                         </div>
-                    </div>
+                    }
                     <div className='w-full'>
                         <h3 className='text-lg font-semibold py-2 px-5 bg-primaryColor-300 rounded-md'>Order Form </h3>
                         <p className='my-5 text-gray-600'>*** Please fill all the required fields and select your desired book! ***</p>

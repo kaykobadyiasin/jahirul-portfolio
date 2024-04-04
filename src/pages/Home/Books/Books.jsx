@@ -3,12 +3,13 @@ import Button from "../../../Components/Button/Button";
 import { useEffect, useState } from "react";
 import { apiURL } from "../../../ApiService/api";
 import { BallTriangle } from "react-loader-spinner";
+import { Skeleton } from "keep-react";
 
 
 const Books = () => {
 
     const [books, setBooks] = useState();
-    const [loading, setLoading] = useState(null);
+    const [loading, setLoading] = useState(true);
 
     useEffect(() => {
         fetch(`${apiURL}/book`)
@@ -32,21 +33,13 @@ const Books = () => {
                 </div>
 
                 {loading ?
-                    <div className="flex flex-col justify-center items-center text-primaryColor-200">
-                        <div className="animate__animated animate__heartBeat  animate__slower 3s">
-                            <BallTriangle
-                                height={200}
-                                width={80}
-                                radius={5}
-                                color="#008EFF"
-                                ariaLabel="ball-triangle-loading"
-                                wrapperStyle={{}}
-                                wrapperClass=""
-                                visible={true}
-                            />
-                        </div>
-                        {/* <h2 className="mt-10 font-semibold text-xl animate__animated animate__flipInX infinite slow	800ms">Welcome to Matribhumi Smart City</h2> */}
-                    </div>
+                    <Skeleton className="max-w-xl space-y-2.5 mt-5">
+                        <Skeleton.Line className="h-4 w-full rounded-md" />
+                        <Skeleton.Line className="h-4 w-full rounded-md" />
+                        <Skeleton.Line className="h-4 w-3/5 rounded-md" />
+                        <Skeleton.Line className="h-4 w-4/5 rounded-md" />
+                        <Skeleton.Line className="h-10 w-2/5 rounded-md" />
+                    </Skeleton>
                     :
                     <div className="grid 2xl:grid-cols-2 lg:grid-cols-2 sm:grid-cols-1 gap-5 sm:px-0 px-5">
                         {books?.map((item, index) => (
