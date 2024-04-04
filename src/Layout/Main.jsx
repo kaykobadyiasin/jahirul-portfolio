@@ -23,13 +23,27 @@ const Main = () => {
         setLoading(true);
         setTimeout(() => {
             setLoading(false);
-        }, 0)
+        }, 1000)
     }, [])
 
     return (
         <div>
             {loading ?
-                <></>
+                <div className="flex flex-col justify-center items-center h-screen bg-secondaryColor-100 text-white">
+                    <div className="animate__animated animate__heartBeat  animate__slower 3s">
+                        <BallTriangle
+                            height={100}
+                            width={100}
+                            radius={5}
+                            color="#ffffff"
+                            ariaLabel="ball-triangle-loading"
+                            wrapperStyle={{}}
+                            wrapperClass=""
+                            visible={true}
+                        />
+                    </div>
+                    {/* <h2 className="mt-10 font-semibold text-xl animate__animated animate__flipInX infinite slow	800ms">Welcome to Matribhumi Smart City</h2> */}
+                </div>
 
                 :
                 <div className='relative'>
