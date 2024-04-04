@@ -1,11 +1,9 @@
-
 import React, { Suspense } from "react";
 import heroBg from '../../../assets/Hero/heroBg.png'
 import hero from '../../../assets/Hero/main.png'
 
 const Navbar = React.lazy(() => import("../../../Components/Navbar/Navbar"));
 const Button = React.lazy(() => import("../../../Components/Button/Button"));
-
 
 const Hero = () => {
     return (
