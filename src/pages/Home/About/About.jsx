@@ -1,12 +1,15 @@
-import SectionTitle from '../../../Components/SectionTitle/SectionTitle';
+
+import React, { Suspense } from 'react';
 import about from '../../../assets/About/about.png'
 import ignite from '../../../assets/About/ignite.png'
 import matribhumi from '../../../assets/About/matribhumi.png'
 import doted from '../../../assets/Footer/doted.png'
 
+const SectionTitle = React.lazy(() => import("../../../Components/SectionTitle/SectionTitle"));
+
+
 const aboutMe = [
     { about: 'Explore Career' },
-
     { about: 'development sector' },
     { about: 'Corporate sector' },
     { about: 'Find Resume Tips' },
@@ -19,7 +22,9 @@ const About = () => {
     return (
         <div id='about' className="bg-primaryColor-100 py-32">
             <div className="flex flex-col justify-center items-center gap-5">
-                <SectionTitle titleP={'Who'} title={'Am I?'} des={''} />
+                <Suspense fallback={'loading...'}>
+                    <SectionTitle titleP={'Who'} title={'Am I?'} des={''} />
+                </Suspense>
             </div>
             <div className='container mx-auto'>
                 <div className='flex lg:flex-row flex-col gap-10 lg:mx-0 mx-5'>

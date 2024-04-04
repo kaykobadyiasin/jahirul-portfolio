@@ -1,11 +1,9 @@
 import { useForm } from "react-hook-form";
 import { apiURL } from "../../../ApiService/api";
 import toast, { Toaster } from 'react-hot-toast';
-
-import { Avatar, Badge, Button, Popover, Skeleton, Table } from 'keep-react'
-import { ArrowsDownUp, Crown, Cube, DotsThreeOutline, Pencil, Trash } from 'phosphor-react'
+import { Button, Skeleton, Table } from 'keep-react'
+import { ArrowsDownUp } from 'phosphor-react'
 import { useEffect, useState } from "react";
-import { BallTriangle } from "react-loader-spinner";
 import { Icon } from "@iconify/react";
 
 const ManageBook = () => {

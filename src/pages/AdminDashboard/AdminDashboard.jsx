@@ -2,7 +2,7 @@ import { Icon } from "@iconify/react";
 import {
     List
 } from 'phosphor-react'
-import { Avatar, Button, Divider, Input, Sidebar, Typography } from 'keep-react'
+import { Button, Divider, Input, Sidebar, Typography } from 'keep-react'
 import { Link, NavLink, Outlet } from 'react-router-dom';
 
 import admin from '../../assets/Hero/Jhir.jpeg'

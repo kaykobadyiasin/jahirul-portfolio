@@ -57,7 +57,7 @@ const BookDetails = () => {
     };
 
     return (
-        <div className="min-h-screen py-20 ">
+        <div className="min-h-screen py-20 animate__animated animate__fadeIn">
             <div className="container mx-auto p-3">
                 <div className='mb-10'>
                     <Breadcrumb items={breadcrumbItems} ></Breadcrumb>

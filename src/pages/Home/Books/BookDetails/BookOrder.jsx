@@ -46,7 +46,7 @@ function BookOrder() {
     };
 
     return (
-        <div className='min-h-screen'>
+        <div className='min-h-screen animate__animated animate__fadeIn'>
             <div className='container mx-auto py-20'>
                 <div className='mb-10'>
                     <Breadcrumb items={breadcrumbItems} ></Breadcrumb>

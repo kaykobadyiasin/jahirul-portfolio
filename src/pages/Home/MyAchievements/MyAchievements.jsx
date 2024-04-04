@@ -1,5 +1,6 @@
 import { Icon } from "@iconify/react";
-import SectionTitle from "../../../Components/SectionTitle/SectionTitle";
+import React, { Suspense } from "react";
+const SectionTitle = React.lazy(() => import("../../../Components/SectionTitle/SectionTitle"));
 
 const achievements = [
     {
@@ -50,11 +51,13 @@ const MyAchievements = () => {
     return (
         <div id="achievement" className="bg-primaryColor-300 py-32">
             <div className="flex flex-col justify-center text-center items-center gap-5 xl:mx-0 mx-5">
-                <SectionTitle
-                    title={'My'}
-                    titleC={'Achievements'}
-                    des={'Throughout my entire life I have been recognized by different organization for my relentless contribution to different sectors of our community.'}
-                />
+                <Suspense fallback={'loading...'}>
+                    <SectionTitle
+                        title={'My'}
+                        titleC={'Achievements'}
+                        des={'Throughout my entire life I have been recognized by different organization for my relentless contribution to different sectors of our community.'}
+                    />
+                </Suspense>
             </div>
             <div className="xl:mx-0 mx-5">
                 <div className="container mx-auto grid xl:grid-cols-3 lg:grid-cols-2 sm:grid-cols-2 justify-items-center gap-5 mt-10">

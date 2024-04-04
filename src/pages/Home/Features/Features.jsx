@@ -1,16 +1,3 @@
-import { Link } from "react-router-dom";
-import SectionTitle from "../../../Components/SectionTitle/SectionTitle";
-import news1 from '../../../assets/Featrues/news1.png'
-import news2 from '../../../assets/Featrues/news2.png'
-import news3 from '../../../assets/Featrues/news3.png'
-import news4 from '../../../assets/Featrues/news4.png'
-import news5 from '../../../assets/Featrues/news5.png'
-import news6 from '../../../assets/Featrues/news6.png'
-import news7 from '../../../assets/Featrues/news7.png'
-import news8 from '../../../assets/Featrues/news8.png'
-import news9 from '../../../assets/Featrues/news9.png'
-import news10 from '../../../assets/Featrues/news10.png'
-
 
 // Import Swiper React components
 import { Swiper, SwiperSlide } from 'swiper/react';
@@ -22,7 +9,22 @@ import 'swiper/css/pagination';
 
 // import required modules
 import { Autoplay, Pagination } from 'swiper/modules';
-import { features } from "../../../../public/data";
+import React, { Suspense, useEffect, useState } from "react";
+import { apiURL } from "../../../ApiService/api";
+import { Skeleton } from "keep-react";
+
+import { Link } from "react-router-dom";
+const SectionTitle = React.lazy(() => import("../../../Components/SectionTitle/SectionTitle"));
+import news1 from '../../../assets/Featrues/news1.png'
+import news2 from '../../../assets/Featrues/news2.png'
+import news3 from '../../../assets/Featrues/news3.png'
+import news4 from '../../../assets/Featrues/news4.png'
+import news5 from '../../../assets/Featrues/news5.png'
+import news6 from '../../../assets/Featrues/news6.png'
+import news7 from '../../../assets/Featrues/news7.png'
+import news8 from '../../../assets/Featrues/news8.png'
+import news9 from '../../../assets/Featrues/news9.png'
+import news10 from '../../../assets/Featrues/news10.png'
 
 const news = [
     {
@@ -75,60 +77,87 @@ const news = [
         image: news9,
         url: 'https://whatson.guide/meet-the-diana-award-2020-recipients-from-bangladesh/'
     },
-    
+
 ];
 
-const feature = features;
-
 const Features = () => {
+
+    const [features, setBooks] = useState();
+    const [loading, setLoading] = useState(true);
+
+    useEffect(() => {
+        fetch(`${apiURL}/feature`)
+            .then(res => res.json())
+            .then(data => {
+                setLoading(true)
+                setBooks(data)
+                setLoading(false)
+            })
+    }, [])
+
+
     return (
         <div id="feature" className="bg-primaryColor-100 py-32">
             <div className="flex flex-col justify-center text-center items-center gap-5 xl:mx-0 mx-5">
-                <SectionTitle titleP={'My'} title={'Features'} des={'Throughout my entire life I have been recognized by different organization for my relentless contribution to different sectors of our community.'} />
+                <Suspense fallback={'loading...'}>
+                    <SectionTitle titleP={'My'} title={'Features'} des={'Throughout my entire life I have been recognized by different organization for my relentless contribution to different sectors of our community.'} />
+                </Suspense>
             </div>
             <div className="container mx-auto py-8">
                 <div className="xl:mx-0 mx-5">
-                    <Swiper
-                        slidesPerView={1} // For mobile view
-                        spaceBetween={30}
-                        pagination={{ clickable: true }}
-                        autoplay={{ delay: 2500, disableOnInteration: false }}
-                        centeredSlides={true}
-                        modules={[Autoplay, Pagination]}
-                        className="mySwiper"
-                        breakpoints={{
-                            // For tablets
-                            768: {
-                                slidesPerView: 2,
-                            },
-                            // For laptops
-                            1024: {
-                                slidesPerView: 3,
-                            },
-                            // For desktops and larger screens
-                            1280: {
-                                slidesPerView: 3,
-                            },
-                        }}
-                    >
-                        {feature.map((item, index) => (
-                            <SwiperSlide key={index}>
-                                <Link to={item?.url} target="_blank">
-                                    <div className="relative bg-primaryColor-500 hover:bg-primaryColor-400 duration-300 translate-y-28 hover:translate-y-5 rounded-md">
-                                        <div className="rounded-t-md">
-                                            <img src={item.image} className="w-full" alt="" />
-                                        </div>
-                                        <div className="p-5 absolute top-0 bg-gradient-to-t from-secondaryColor-100 w-full h-full ">
-                                            <div className="flex flex-col justify-end -translate-y-[150px] h-[500px] sticky bottom-0">
-                                                <h3 className="text-primaryColor-100 text-xl font-semibold mb-2">{item.title}</h3>
-                                                <h6 className="text-primaryColor-300 text-sm font-semibold">{item.date}</h6>
+                    {loading ?
+                        <Skeleton className="max-w-xl space-y-2.5 mt-32">
+                            <Skeleton.Line className="h-4 w-full rounded-md" />
+                            <Skeleton.Line className="h-4 w-full rounded-md" />
+                            <Skeleton.Line className="h-4 w-3/5 rounded-md" />
+                            <Skeleton.Line className="h-4 w-4/5 rounded-md" />
+                            <Skeleton.Line className="h-10 w-2/5 rounded-md" />
+                        </Skeleton>
+                        :
+                        <Swiper
+                            slidesPerView={1} // For mobile view
+                            spaceBetween={30}
+                            pagination={{ clickable: true }}
+                            autoplay={{ delay: 2500, disableOnInteration: false }}
+                            centeredSlides={true}
+                            modules={[Autoplay, Pagination]}
+                            className="mySwiper"
+                            breakpoints={{
+                                // For tablets
+                                768: {
+                                    slidesPerView: 2,
+                                },
+                                // For laptops
+                                1024: {
+                                    slidesPerView: 3,
+                                },
+                                // For desktops and larger screens
+                                1280: {
+                                    slidesPerView: 3,
+                                },
+                            }}
+                        >
+
+                            {features?.map((item, index) => (
+                                <SwiperSlide key={index}>
+
+                                    <Link to={item?.url} target="_blank">
+                                        <div className="relative bg-primaryColor-500 hover:bg-primaryColor-400 duration-300 translate-y-28 hover:translate-y-5 rounded-md">
+                                            <div className="rounded-t-md">
+                                                <img src={item?.image} className="w-full" alt="" />
+                                            </div>
+                                            <div className="p-5 absolute top-0 bg-gradient-to-t from-secondaryColor-100 w-full h-full ">
+                                                <div className="flex flex-col justify-end -translate-y-[150px] h-[500px] sticky bottom-0">
+                                                    <h3 className="text-primaryColor-100 text-xl font-semibold mb-2">{item?.title}</h3>
+                                                    <h6 className="text-primaryColor-300 text-sm font-semibold">{item?.up_date}</h6>
+                                                </div>
                                             </div>
                                         </div>
-                                    </div>
-                                </Link>
-                            </SwiperSlide>
-                        ))}
-                    </Swiper>
+                                    </Link>
+                                </SwiperSlide>
+                            ))}
+                        </Swiper>
+                    }
                 </div>
             </div>
             <div className=" bg-primaryColor-400 py-20 mt-28">

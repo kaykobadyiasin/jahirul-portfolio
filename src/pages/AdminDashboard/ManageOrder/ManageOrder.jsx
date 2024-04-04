@@ -1,21 +1,13 @@
 
-import { Badge, Button, Popover, Skeleton, Table } from "keep-react";
+import { Badge, Button, Skeleton, Table } from "keep-react";
 import {
     CalendarBlank,
-    Crown,
-    Cube,
     CurrencyDollar,
     DotsNine,
-    DotsThreeOutline,
-    Flag,
-    Pencil,
     Spinner,
-    Tag,
-    Trash,
 } from "phosphor-react";
 import { useEffect, useState } from "react";
 import { apiURL } from "../../../ApiService/api";
-import { BallTriangle } from "react-loader-spinner";
 import { Icon } from "@iconify/react";
 
 const ManageOrder = () => {

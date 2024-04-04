@@ -1,9 +1,9 @@
 import { Link } from "react-router-dom";
-import Button from "../../../Components/Button/Button";
-import { useEffect, useState } from "react";
-import { apiURL } from "../../../ApiService/api";
+import React, { Suspense, useEffect, useState } from "react";
 import { BallTriangle } from "react-loader-spinner";
 import { Skeleton } from "keep-react";
+const Button = React.lazy(() => import("../../../Components/Button/Button"));
+import { apiURL } from "../../../ApiService/api";
 
 
 const Books = () => {
@@ -69,7 +69,9 @@ const Books = () => {
                                         <h4 className="sm:text-2xl text-xl font-bold text-[#151515]">TK. {item?.price}</h4>
                                     </div>
                                     <div className="absolute bottom-8 right-5">
-                                        <Button btnValue={'Buy Now'} link={`book/${item?._id}`} color={'text-primaryColor-100'} />
+                                        <Suspense fallback={'loading...'}>
+                                            <Button btnValue={'Buy Now'} link={`book/${item?._id}`} color={'text-primaryColor-100'} />
+                                        </Suspense>
                                     </div>
                                 </div>
                             </Link>
