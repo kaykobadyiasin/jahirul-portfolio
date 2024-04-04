@@ -1,5 +1,5 @@
 import React, { Suspense } from "react";
-const Hero = React.lazy(() => import("./Hero/Hero"));
+import Hero from './Hero/Hero'
 const Books = React.lazy(() => import("./Books/Books"));
 const About = React.lazy(() => import("./About/About"));
 const MyAchievements = React.lazy(() => import("./MyAchievements/MyAchievements"));
@@ -12,9 +12,9 @@ const Contact = React.lazy(() => import("./Contact/Contact"));
 const Home = () => {
     return (
         <div className="min-h-screen bg-secondaryColor-100">
-            <Suspense fallback={'Loading...'}>
-                <Hero />
-            </Suspense>
+            <Hero />
+
+
             <Suspense fallback={'Loading...'}>
                 <Books />
             </Suspense>

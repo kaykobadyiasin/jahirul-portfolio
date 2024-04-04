@@ -1,9 +1,9 @@
 import { Outlet, useLocation } from 'react-router-dom';
 import { Icon } from '@iconify/react';
-import React, { Suspense, useEffect, useState } from 'react';
+import { useEffect, useState } from 'react';
 import { BallTriangle } from 'react-loader-spinner'
-const Footer = React.lazy(() => import("../Components/Footer/Footer"));
 import 'animate.css';
+import Footer from '../Components/Footer/Footer';
 
 const Main = () => {
 
@@ -21,6 +21,39 @@ const Main = () => {
             setLoading(false);
         }, 1000)
     }, [])
+
+
+
+
+    const [isVisible, setIsVisible] = useState(false);
+
+    useEffect(() => {
+        const handleScroll = () => {
+            if (window.scrollY > 100) {
+                setIsVisible(true);
+            } else {
+                setIsVisible(false);
+            }
+        };
+
+        window.addEventListener('scroll', handleScroll);
+
+        // Clean up the event listener on component unmount
+        return () => {
+            window.removeEventListener('scroll', handleScroll);
+        };
+    }, []);
+
+    const scrollToTop = () => {
+        window.scrollTo({
+            top: 0,
+            behavior: 'smooth'
+        });
+    };
+
+
+
+
 
     return (
         <div className='bg-primaryColor-300'>
@@ -43,17 +76,13 @@ const Main = () => {
 
                 :
                 <div className='relative'>
-                    <Suspense fallback={<p>Loading...</p>}>
-                        <Outlet />
-                    </Suspense>
-                    <Suspense
-                        fallback={'loading...'}
-                    >
-                        <Footer />
-                    </Suspense>
-                    <div onClick={() => window.scrollTo(0, 0)} className='duration-200 fixed bottom-10 right-10 cursor-pointer rounded-full p-1 border bg-primaryColor-100'>
-                        <Icon icon='mingcute:arrows-up-line' className="text-3xl text-primaryColor-200" />
-                    </div>
+                    <Outlet />
+                    <Footer />
+                    {isVisible && (
+                        <div onClick={scrollToTop} className='duration-200 fixed bottom-10 right-10 cursor-pointer rounded-full p-1 border bg-primaryColor-100'>
+                            <Icon icon='mingcute:arrows-up-line' className="text-3xl text-primaryColor-200" />
+                        </div>
+                    )}
                 </div>
             }
         </div>
