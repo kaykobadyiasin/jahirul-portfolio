@@ -1,3 +1,5 @@
+import toast, { Toaster } from 'react-hot-toast';
+import { apiURL } from '../../../ApiService/api';
 import jahirul from '../../../assets/Footer/Jhir.jpeg'
 import border from '../../../assets/Footer/border.png'
 import doted from '../../../assets/Footer/doted.png'
@@ -7,10 +9,23 @@ const Contact = () => {
 
     const { register, handleSubmit, reset, formState: { errors } } = useForm();
     const onSubmit = data => {
-        reset()
-        console.log(data)
-    }
+        fetch(`${apiURL}/contact`, {
+            method: "POST",
+            headers: { "content-type": "application/json" },
+            body: JSON.stringify(data)
+        })
+            .then(res => res.json())
+            .then(result => {
 
+                if (result?.insertedId) {
+                    toast.success('Successfully send message');
+                    reset()
+                }
+                else {
+                    toast.error("!Oops something wrong. Message is't send");
+                }
+            })
+    }
 
     return (
         <div id='contact' className="bg-primaryColor-300 py-32">
@@ -48,7 +63,7 @@ const Contact = () => {
                             <form onSubmit={handleSubmit(onSubmit)}>
                                 <div className="mb-5">
                                     <div className='flex gap-5 '>
-                                        <input type="name" id="name" {...register("firstName", { required: true })} className="shadow-sm bg-primaryColor-100 border border-gray-300 text-secondaryColor-200 placeholder-secondaryColor-300 text-sm rounded-md focus:ring-primaryColor-200 focus:border-primaryColor-200 block w-full p-4 dark:bg-primaryColor-100 dark:border-secondaryColor-400 dark:placeholder-secondaryColor-300 dark:text-secondaryColor-200 dark:focus:ring-primaryColor-200 dark:focus:border-primaryColor-200 dark:shadow-sm-light" placeholder="Name" required />
+                                        <input type="name" id="name" {...register("name", { required: true })} className="shadow-sm bg-primaryColor-100 border border-gray-300 text-secondaryColor-200 placeholder-secondaryColor-300 text-sm rounded-md focus:ring-primaryColor-200 focus:border-primaryColor-200 block w-full p-4 dark:bg-primaryColor-100 dark:border-secondaryColor-400 dark:placeholder-secondaryColor-300 dark:text-secondaryColor-200 dark:focus:ring-primaryColor-200 dark:focus:border-primaryColor-200 dark:shadow-sm-light" placeholder="Name" required />
                                         <input type="email" id="email" {...register("email", { required: true })} className="shadow-sm bg-primaryColor-100 border border-gray-300 text-secondaryColor-200 placeholder-secondaryColor-300 text-sm rounded-md focus:ring-primaryColor-200 focus:border-primaryColor-200 block w-full p-4 dark:bg-primaryColor-100 dark:border-secondaryColor-400 dark:placeholder-secondaryColor-300 dark:text-secondaryColor-200 dark:focus:ring-primaryColor-200 dark:focus:border-primaryColor-200 dark:shadow-sm-light" placeholder="Email" required />
                                     </div>
                                 </div>
@@ -60,6 +75,10 @@ const Contact = () => {
                                 </div>
                                 <input className='rounded cursor-pointer px-7 py-3 text-primaryColor-100 font-medium hover:text-primaryColor-200 bg-primaryColor-200 hover:bg-primaryColor-200 hover:bg-opacity-5  border border-transparent hover:border-primaryColor-200 duration-200 mt-5' type="submit" value={'Send Message'} />
                             </form>
+                            <Toaster
+                                position="top-right"
+                                reverseOrder={false}
+                            />
                         </div>
                     </div>
                 </div>
