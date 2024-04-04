@@ -149,8 +149,8 @@ const BookDetails = () => {
                         <div>
                             <h3 className=' py-2.5 px-2.5 font-semibold border rounded-md bg-primaryColor-300'>Description:</h3>
                             <div className='my-5'>
-                                <p className='p-3 rounded-md border leading-[32px]'>
-                                    আমাদের তরুণ প্রজন্ম কিংবা বায়োজ্যেষ্ঠর মাঝে একটা বড় অংশ উড়োজাহাজ কিংবা এভিয়েশন ইন্ডাস্ট্রি নিয়ে তেমন সঠিক কোন ধরনা নেই কিন্তু আছে জানার অতি আগ্রহ, প্রবল ইচ্ছা এবং কৌতুহল। এভিয়েশন সম্পর্কে সঠিক গাইডলাইন আর শত অজানা তথ্য দিবে এভিয়েশন ক্যারিয়ার বইটি। যার ফলে এভিয়েশনের প্রতি তৈরি হবে আগ্রহ, উদ্দীপনা এবং জানার প্রবল ইচ্ছে।
+                                <p className='p-3 rounded-md border leading-[32px] whitespace-pre-line'>
+                                    {singlebook?.details}
                                 </p>
                             </div>
                         </div>
