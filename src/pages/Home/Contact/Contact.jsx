@@ -62,7 +62,7 @@ const Contact = () => {
                         <div className='mt-10'>
                             <form onSubmit={handleSubmit(onSubmit)}>
                                 <div className="mb-5">
-                                    <div className='flex gap-5 '>
+                                    <div className='flex sm:flex-row flex-col gap-5 '>
                                         <input type="name" id="name" {...register("name", { required: true })} className="shadow-sm bg-primaryColor-100 border border-gray-300 text-secondaryColor-200 placeholder-secondaryColor-300 text-sm rounded-md focus:ring-primaryColor-200 focus:border-primaryColor-200 block w-full p-4 dark:bg-primaryColor-100 dark:border-secondaryColor-400 dark:placeholder-secondaryColor-300 dark:text-secondaryColor-200 dark:focus:ring-primaryColor-200 dark:focus:border-primaryColor-200 dark:shadow-sm-light" placeholder="Name" required />
                                         <input type="email" id="email" {...register("email", { required: true })} className="shadow-sm bg-primaryColor-100 border border-gray-300 text-secondaryColor-200 placeholder-secondaryColor-300 text-sm rounded-md focus:ring-primaryColor-200 focus:border-primaryColor-200 block w-full p-4 dark:bg-primaryColor-100 dark:border-secondaryColor-400 dark:placeholder-secondaryColor-300 dark:text-secondaryColor-200 dark:focus:ring-primaryColor-200 dark:focus:border-primaryColor-200 dark:shadow-sm-light" placeholder="Email" required />
                                     </div>
