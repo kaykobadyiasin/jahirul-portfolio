@@ -1,6 +1,6 @@
 import React, { Suspense } from "react";
 import Hero from './Hero/Hero'
-const Books = React.lazy(() => import("./Books/Books"));
+import Books from './Books/Books'
 const About = React.lazy(() => import("./About/About"));
 const MyAchievements = React.lazy(() => import("./MyAchievements/MyAchievements"));
 const Features = React.lazy(() => import("./Features/Features"));
@@ -13,11 +13,7 @@ const Home = () => {
     return (
         <div className="min-h-screen bg-secondaryColor-100">
             <Hero />
-
-
-            <Suspense fallback={'Loading...'}>
-                <Books />
-            </Suspense>
+            <Books />
             <Suspense fallback={'Loading...'}>
                 <About />
             </Suspense>

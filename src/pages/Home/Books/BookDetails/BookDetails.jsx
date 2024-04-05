@@ -10,19 +10,21 @@ import toast, { Toaster } from 'react-hot-toast';
 
 const BookDetails = () => {
 
-
+    const { id } = useParams();
     const [books, setBooks] = useState(null);
     const [singleBook, setSingleBook] = useState(null);
     const [reviews, setReviews] = useState([]);
     const [newReview, setNewReview] = useState({ clientName: '', clientEmail: '', rating: 0, comment: '' });
     const [loading, setLoading] = useState(true);
 
-    const { id } = useParams();
 
-    const recentBooks = books?.filter(recentBook => String(recentBook._id) !== String(id));
+    const recentBooks = books?.filter(recentBook => String(recentBook?._id) !== String(id));
+
+
 
 
     useEffect(() => {
+
         setLoading(true)
         // // Fetch books
         fetch(`${apiURL}/book`)
@@ -31,6 +33,7 @@ const BookDetails = () => {
                 if (data) {
                     setBooks(data)
                     setLoading(false)
+
                 }
             });
 
@@ -41,6 +44,7 @@ const BookDetails = () => {
                 if (data) {
                     setSingleBook(data)
                     setLoading(false)
+
                 }
             });
 
@@ -48,6 +52,7 @@ const BookDetails = () => {
         fetch(`${apiURL}/book/${id}/reviews`)
             .then(res => res.json())
             .then(data => {
+
                 if (data) {
                     setReviews(data)
                     setLoading(false)
@@ -65,7 +70,7 @@ const BookDetails = () => {
             setNewReview({ clientName: '', clientEmail: '', rating: 0, comment: '' });
 
             // Send request to backend to add review
-            fetch(`${apiURL}/book/${id}/review`, {
+            fetch(`${apiURL}/book/${id}/reviews`, {
                 method: "PUT",
                 headers: { "Content-Type": "application/json" },
                 body: JSON.stringify(newReview)
@@ -83,7 +88,6 @@ const BookDetails = () => {
                 });
         }
     };
-
 
 
 
@@ -128,13 +132,13 @@ const BookDetails = () => {
                                     <Rating
                                         readonly
                                         className='text-xl'
-                                        placeholderRating={5}
+                                        placeholderRating={(singleBook?.reviews) ? 4.5 : 0}
                                         emptySymbol={<Icon icon="mdi:star-outline" className='text-orange-400' />}
                                         placeholderSymbol={<Icon icon="material-symbols:star" className='text-orange-400' />}
                                         fullSymbol={<Icon icon="material-symbols:star" className='text-orange-400' />}
                                         onChange={(value) => setNewReview({ ...newReview, rating: value })}
                                     />
-                                    <span>({singleBook?.reviews?.length}) Reviews</span>
+                                    <span>({(singleBook?.reviews) ? singleBook?.reviews?.length : '0'}) Reviews</span>
                                 </div>
                                 <h4 className='my-5 text-xl font-semibold'>TK. {singleBook?.price}</h4>
 
@@ -159,8 +163,8 @@ const BookDetails = () => {
                                 {recentBooks
                                     ?.reverse()
                                     .slice(0, 3)
-                                    .map((recentBook) => (
-                                        <div key={recentBook._id} className="border p-3 rounded-md">
+                                    ?.map((recentBook) => (
+                                        <div key={recentBook?._id} className="border p-3 rounded-md">
                                             <Link to={`/book/${recentBook?._id}`} className=''>
                                                 <div
                                                     className=" h-full"
@@ -209,7 +213,7 @@ const BookDetails = () => {
 
                     </div>
                     <div className='w-full rounded-md'>
-                        <h3 className=' py-2.5 px-2.5 font-semibold border rounded-md bg-primaryColor-300'>Reviews: ({singleBook?.reviews?.length})</h3>
+                        <h3 className=' py-2.5 px-2.5 font-semibold border rounded-md bg-primaryColor-300'>Reviews: ({(singleBook?.reviews) ? singleBook?.reviews?.length : '0'})</h3>
                         <div className='my-5 px-1'>
                             {loading ?
                                 <Skeleton animation={false} className="max-w-xl space-y-2.5 mt-5">
@@ -222,17 +226,17 @@ const BookDetails = () => {
                                 </Skeleton>
                                 :
                                 <div className='rounded-md'>
-                                    {singleBook?.reviews.map((review, index) => (
+                                    {(singleBook?.reviews) && singleBook?.reviews.map((review, index) => (
                                         <div key={index} className="rounded-lg">
 
                                             <div className='flex items-center gap-2 mb-2'>
                                                 <Icon icon="solar:user-circle-bold" className='text-2xl' />
-                                                <h4 className="text-md font-semibold">{review.clientName}</h4>
+                                                <h4 className="text-md font-semibold">{review?.clientName}</h4>
                                             </div>
                                             <Rating
                                                 readonly
                                                 className='text-xl'
-                                                placeholderRating={review.rating}
+                                                placeholderRating={review?.rating}
                                                 emptySymbol={<Icon icon="mdi:star-outline" className='text-orange-400' />}
                                                 placeholderSymbol={<Icon icon="material-symbols:star" className='text-orange-400' />}
                                                 fullSymbol={<Icon icon="material-symbols:star" className='text-orange-400' />}
