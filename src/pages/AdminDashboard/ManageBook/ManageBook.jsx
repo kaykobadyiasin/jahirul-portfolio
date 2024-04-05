@@ -17,16 +17,23 @@ const ManageBook = () => {
     const [books, setBooks] = useState([]);
     const [loading, setLoading] = useState(true);
 
-
-    // get books 
     useEffect(() => {
-        fetch(`${apiURL}/book`)
-            .then(res => res.json())
-            .then(data => {
-                setBooks(data)
-                setLoading(false)
-            })
-    }, [])
+        const fetchBooks = async () => {
+            try {
+                const response = await fetch(`${apiURL}/book`);
+                if (!response.ok) {
+                    throw new Error('Failed to fetch books');
+                }
+                const data = await response.json();
+                setBooks(data);
+                setLoading(false);
+            } catch (error) {
+                console.error('Error fetching books:', error);
+            }
+        };
+
+        fetchBooks();
+    }, []);
 
 
 
@@ -49,79 +56,81 @@ const ManageBook = () => {
     //             setLoading(false)
     //         })
     // }, [existingId])
-
-    const onSubmit = (data) => {
-
-        // add 
-        if (existingId) {
-            fetch(`${apiURL}/book/${existingId}`, {
-                method: "PUT",
-                headers: { "content-type": "application/json" },
-                body: JSON.stringify(data)
-            })
-                .then(res => res.json())
-                .then(result => {
-                    console.log(result)
-                    if (result?.modifiedCount > 0) {
-                        setExistingId(null)
-                        reset()
-                        toast.success('Successfully Updated book');
-
-                        // acknowledged:true
-                        // matchedCount:1
-                        // modifiedCount:1
-                        // upsertedCount:0
-                        // upsertedId:null
-
-                    }
-                    else {
-                        toast.error("!Oops something wrong. Book is't Update");
-                    }
-                })
-        }
-        else {
-            fetch(`${apiURL}/book`, {
-                method: "POST",
-                headers: { "content-type": "application/json" },
-                body: JSON.stringify(data)
-            })
-                .then(res => res.json())
-                .then(result => {
-
-                    if (result?.insertedId) {
-                        toast.success('Successfully added book');
-                        reset()
-                    }
-                    else {
-                        toast.error("!Oops something wrong. Book is't Add");
-                    }
-                })
+    const onSubmit = async (data) => {
+        try {
+            if (existingId) {
+                console.log('updating');
+                const response = await fetch(`${apiURL}/book/${existingId}`, {
+                    method: "PUT",
+                    headers: { "Content-Type": "application/json" },
+                    body: JSON.stringify(data)
+                });
+                const result = await response.json();
+                console.log(result);
+                if (result?.modifiedCount > 0) {
+                    toast.success('Successfully updated book');
+                    setExistingId(null);
+                    reset();
+                } else {
+                    toast.error("Oops, something went wrong. The book couldn't be updated.");
+                }
+            } else {
+                console.log('adding');
+                const response = await fetch(`${apiURL}/book`, {
+                    method: "POST",
+                    headers: { "Content-Type": "application/json" },
+                    body: JSON.stringify(data)
+                });
+                const result = await response.json();
+                console.log(result);
+                console.log(response);
+                
+                if (result?.insertedId) {
+                    toast.success('Successfully added book');
+                    reset();
+                } else {
+                    toast.error("Oops, something went wrong. The book couldn't be added.");
+                }
+            }
+        } catch (error) {
+            console.error('Error submitting book data:', error);
+            toast.error('Error submitting book data. Please try again later.');
         }
     };
+
 
 
 
     const handleDelete = (id) => {
         // Display confirmation dialog
-        if (window.confirm('Are you sure you want to delete this book?')) {
-            fetch(`${apiURL}/book/${id}`, {
-                method: 'DELETE'
+        const confirmDelete = window.confirm('Are you sure you want to delete this book?');
+
+        if (!confirmDelete) return;
+
+        fetch(`${apiURL}/book/${id}`, {
+            method: 'DELETE'
+        })
+            .then(res => {
+
+                if (res.ok) {
+                    return res.json();
+                }
+                throw new Error('Failed to delete book');
             })
-                .then(res => res.json())
-                .then(data => {
-                    if (data?.deletedCount > 0) {
-                        toast.success('Successfully deleted this book');
-                    }
-                    else {
-                        toast.error("Oops something wrong. Book isn't deleted");
-                    }
-                })
-                .catch(error => {
-                    console.error('Error deleting book:', error);
-                    toast.error('Error deleting book. Please try again later.');
-                });
-        }
+            .then(data => {
+                console.log(data);
+                if (data?.message) {
+                    toast.success(data.message);
+                } else {
+                    toast.error('Failed to delete book. Please try again later.');
+                }
+            })
+            .catch(error => {
+                console.error('Error deleting book:', error);
+                toast.error('Failed to delete book. Please try again later.');
+            });
     };
+
 
 
     return (
@@ -163,13 +172,13 @@ const ManageBook = () => {
                                 type="url"
                                 placeholder="Image URL"
                             />
-                            <input
-                                {...register('review')}
+                            {/* <input
+                                {...register('reviews')}
                                 defaultValue={existingId && existingData?.review}
                                 className="shadow-sm bg-primaryColor-100 border border-gray-300 text-secondaryColor-200 placeholder-secondaryColor-300 text-sm rounded-md focus:ring-primaryColor-200 focus:border-primaryColor-200 block w-full p-4 dark:bg-primaryColor-100 dark:border-secondaryColor-400 dark:placeholder-secondaryColor-300 dark:text-secondaryColor-200 dark:focus:ring-primaryColor-200 dark:focus:border-primaryColor-200 dark:shadow-sm-light"
                                 type="text"
                                 placeholder="Review (Example: '4.5', '3.5', '5')"
-                            />
+                            /> */}
                         </div>
                         <textarea type="text" id="details" {...register("details", { required: !existingId ? true : false })}
                             defaultValue={existingId && existingData?.details}

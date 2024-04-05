@@ -40,13 +40,29 @@ const Blogs = () => {
             </div>
             <div className="container mx-auto">
                 {loading ?
-                    <Skeleton className="max-w-xl space-y-2.5 mt-32">
-                        <Skeleton.Line className="h-4 w-full rounded-md" />
-                        <Skeleton.Line className="h-4 w-full rounded-md" />
-                        <Skeleton.Line className="h-4 w-3/5 rounded-md" />
-                        <Skeleton.Line className="h-4 w-4/5 rounded-md" />
-                        <Skeleton.Line className="h-10 w-2/5 rounded-md" />
-                    </Skeleton>
+                    <div className="grid lg:grid-cols-2 sm:grid-cols-2 gap-5 xl:grid-cols-3 mt-12">
+                        <Skeleton className="w-full space-y-2.5 xl:max-w-md">
+                            <Skeleton.Line className="h-52 w-full" />
+                            <Skeleton.Line className="h-4 w-full" />
+                            <Skeleton.Line className="h-4 w-3/5" />
+                            <Skeleton.Line className="h-4 w-4/5" />
+                            <Skeleton.Line className="h-10 w-2/5" />
+                        </Skeleton>
+                        <Skeleton className="w-full space-y-2.5 xl:max-w-md">
+                            <Skeleton.Line className="h-52 w-full" />
+                            <Skeleton.Line className="h-4 w-full" />
+                            <Skeleton.Line className="h-4 w-3/5" />
+                            <Skeleton.Line className="h-4 w-4/5" />
+                            <Skeleton.Line className="h-10 w-2/5" />
+                        </Skeleton>
+                        <Skeleton className="w-full space-y-2.5 xl:max-w-md">
+                            <Skeleton.Line className="h-52 w-full" />
+                            <Skeleton.Line className="h-4 w-full" />
+                            <Skeleton.Line className="h-4 w-3/5" />
+                            <Skeleton.Line className="h-4 w-4/5" />
+                            <Skeleton.Line className="h-10 w-2/5" />
+                        </Skeleton>
+                    </div>
                     :
                     <div className="grid xl:grid-cols-3 sm:grid-cols-2 justify-items-center gap-5 py-8 xl:mx-0 mx-5">
                         {blogs.slice(0, visibleBlogs).map((item, index) => (

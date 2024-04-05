@@ -18,13 +18,13 @@ const AdminDashboard = () => {
                                 <Typography variant="heading-5" className="font-bold text-primaryColor-200">
                                     <Link className='border border-transparent' to={'/'} target='_blank'>Jahir</Link>
                                 </Typography>
-                                <Button variant="outline" shape="icon" color="primary" className="border-none">
+                                {/* <Button variant="outline" shape="icon" color="primary" className="border-none">
                                     <List size={24} />
-                                </Button>
+                                </Button> */}
                             </div>
                             <div>
                                 <fieldset className="relative max-w-md">
-                                    <Input placeholder="Search here" className="ps-11" />
+                                    <Input placeholder="" className="ps-11 h-0 border-none cursor-context-menu" />
                                 </fieldset>
                             </div>
                         </Sidebar.Header>

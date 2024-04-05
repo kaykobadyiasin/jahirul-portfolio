@@ -32,51 +32,71 @@ const Books = () => {
                     </p>
                 </div>
 
-                {loading ?
-                    <Skeleton className="max-w-xl space-y-2.5 mt-5">
-                        <Skeleton.Line className="h-4 w-full rounded-md" />
-                        <Skeleton.Line className="h-4 w-full rounded-md" />
-                        <Skeleton.Line className="h-4 w-3/5 rounded-md" />
-                        <Skeleton.Line className="h-4 w-4/5 rounded-md" />
-                        <Skeleton.Line className="h-10 w-2/5 rounded-md" />
-                    </Skeleton>
-                    :
-                    <div className="grid 2xl:grid-cols-2 lg:grid-cols-2 sm:grid-cols-1 gap-5 sm:px-0 px-5">
-                        {books?.map((item, index) => (
-                            <Link key={index} to={`book/${item?._id}`}>
-                                <div className="w-full cursor-pointer flex items-center gap-5 bg-primaryColor-100 border border-transparent hover:border-primaryColor-200 duration-200 rounded-md p-5 shadow-md relative">
-                                    <div className="w-48">
-                                        {loading ?
-                                            <div className="flex justify-center py-5 animate__animated animate__heartBeat  animate__slower 3s">
-                                                <BallTriangle
-                                                    height={100}
-                                                    width={100}
-                                                    radius={5}
-                                                    color="#008EFF"
-                                                    ariaLabel="ball-triangle-loading"
-                                                    wrapperStyle={{}}
-                                                    wrapperClass=""
-                                                    visible={true}
-                                                />
-                                            </div>
-                                            :
-                                            <img src={item?.image} alt="" className="w-full rounded-md" />
-                                        }
+                <div className="grid 2xl:grid-cols-2 lg:grid-cols-2 sm:grid-cols-1 gap-5 sm:px-0 px-5">
+                    {loading ?
+                        <>
+                            <div className="p-5 bg-primaryColor-100">
+                                <Skeleton animation={false} className="w-full space-y-2.5 mt-5 flex items-center gap-3">
+                                    <Skeleton.Line className="h-60 w-52 rounded-md" />
+                                    <div className='w-full space-y-4'>
+                                        <Skeleton.Line className="h-4 w-1/6 rounded-md" />
+                                        <Skeleton.Line className="h-4 w-2/6 rounded-md" />
+                                        <Skeleton.Line className="h-4 w-1/6 rounded-md" />
+                                        <Skeleton.Line className="h-4 w-3/6 rounded-md" />
                                     </div>
-                                    <div className="w-full">
-                                        <h3 className="sm:text-2xl font-bold text-[#151515]">{item?.name}</h3>
-                                        <h6 className="my-3 text-primaryColor-200 xl:text-lg lg:text-md text-sm">{item?.author}</h6>
-                                        <h4 className="sm:text-2xl text-xl font-bold text-[#151515]">TK. {item?.price}</h4>
+                                </Skeleton>
+                            </div>
+                            <div className="p-5 bg-primaryColor-100">
+                                <Skeleton animation={false} className="w-full space-y-2.5 mt-5 flex items-center gap-3">
+                                    <Skeleton.Line className="h-60 w-52 rounded-md" />
+                                    <div className='w-full space-y-4'>
+                                        <Skeleton.Line className="h-4 w-1/6 rounded-md" />
+                                        <Skeleton.Line className="h-4 w-2/6 rounded-md" />
+                                        <Skeleton.Line className="h-4 w-1/6 rounded-md" />
+                                        <Skeleton.Line className="h-4 w-3/6 rounded-md" />
                                     </div>
-                                    <div className="absolute bottom-8 right-5">
-                                        <Suspense fallback={'loading...'}>
-                                            <Button btnValue={'Buy Now'} link={`book/${item?._id}`} color={'text-primaryColor-100'} />
-                                        </Suspense>
+                                </Skeleton>
+                            </div>
+                        </>
+                        :
+                        <>
+                            {books?.map((item, index) => (
+                                <Link key={index} to={`book/${item?._id}`}>
+                                    <div className="w-full cursor-pointer flex items-center gap-5 bg-primaryColor-100 border border-transparent hover:border-primaryColor-200 duration-200 rounded-md p-5 shadow-md relative">
+                                        <div className="w-48">
+                                            {loading ?
+                                                <div className="flex justify-center py-5 animate__animated animate__heartBeat  animate__slower 3s">
+                                                    <BallTriangle
+                                                        height={100}
+                                                        width={100}
+                                                        radius={5}
+                                                        color="#008EFF"
+                                                        ariaLabel="ball-triangle-loading"
+                                                        wrapperStyle={{}}
+                                                        wrapperClass=""
+                                                        visible={true}
+                                                    />
+                                                </div>
+                                                :
+                                                <img src={item?.image} alt="" className="w-full rounded-md" />
+                                            }
+                                        </div>
+                                        <div className="w-full">
+                                            <h3 className="sm:text-2xl font-bold text-[#151515]">{item?.name}</h3>
+                                            <h6 className="my-3 text-primaryColor-200 xl:text-lg lg:text-md text-sm">{item?.author}</h6>
+                                            <h4 className="sm:text-2xl text-xl font-bold text-[#151515]">TK. {item?.price}</h4>
+                                        </div>
+                                        <div className="absolute bottom-8 right-5">
+                                            <Suspense fallback={'loading...'}>
+                                                <Button btnValue={'Buy Now'} link={`book/${item?._id}`} color={'text-primaryColor-100'} />
+                                            </Suspense>
+                                        </div>
                                     </div>
-                                </div>
-                            </Link>
-                        ))}
-                    </div>}
+                                </Link>
+                            ))}
+                        </>
+                    }
+                </div>
             </div>
         </div >
     );
