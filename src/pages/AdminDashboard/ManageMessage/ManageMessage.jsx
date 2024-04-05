@@ -23,7 +23,7 @@ const ManageMessage = () => {
     return (
         <div>
             <h3 className='text-lg font-semibold py-2 px-5 bg-primaryColor-300 rounded-md'>Manage Message</h3>
-            <div className="mt-5 flex flex-wrap gap-5">
+            <div className="mt-5 grid grid-cols-4 gap-5">
                 {contacts?.map(item => (
                     <Card key={item?._id}>
                         <Card.Content className="space-y-3">

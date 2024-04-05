@@ -84,16 +84,6 @@ const BookDetails = () => {
         }
     };
 
-    const [clientReview, setClientReview] = useState([]);
-
-    useEffect(() => {
-        setLoading(true)
-        if (singleBook && singleBook.reviews) {
-            const reviews = singleBook.reviews.map(review => review);
-            setClientReview(reviews);
-            setLoading(true)
-        }
-    }, [singleBook]);
 
 
 
@@ -122,8 +112,14 @@ const BookDetails = () => {
                         </Skeleton>
                         :
                         <div className='flex sm:flex-row flex-col items-center gap-5 w-full'>
-                            <div className='lg:w-3/12 sm:w-6/12 w-full'>
-                                <img src={singleBook?.image} className='w-full border p-3 rounded-md' alt="" />
+                            <div className='lg:w-3/12 sm:w-6/12 w-full border rounded-md'>
+                                {loading ?
+                                    <Skeleton animation={false} className="w-full space-y-2.5 mt-5 flex items-center gap-3">
+                                        <Skeleton.Line className="h-60 w-52 rounded-md" />
+                                    </Skeleton>
+                                    :
+                                    <img src={singleBook?.image} className='w-full p-3 rounded-md' alt="" />
+                                }
                             </div>
                             <div className='w-full lg:p-5 my-5'>
                                 <h2 className='lg:text-3xl text-2xl font-semibold'>{singleBook?.name}</h2>
@@ -138,7 +134,7 @@ const BookDetails = () => {
                                         fullSymbol={<Icon icon="material-symbols:star" className='text-orange-400' />}
                                         onChange={(value) => setNewReview({ ...newReview, rating: value })}
                                     />
-                                    <span>({clientReview?.length}) Reviews</span>
+                                    <span>({singleBook?.reviews?.length}) Reviews</span>
                                 </div>
                                 <h4 className='my-5 text-xl font-semibold'>TK. {singleBook?.price}</h4>
 
@@ -172,7 +168,7 @@ const BookDetails = () => {
                                                     <img
                                                         src={recentBook?.image}
                                                         alt="Matribhumi City"
-                                                        className="w-full h-full object-contain"
+                                                        className="w-full h-full object-contain rounded-md"
                                                     />
                                                 </div>
                                                 <div className="">
@@ -213,7 +209,7 @@ const BookDetails = () => {
 
                     </div>
                     <div className='w-full rounded-md'>
-                        <h3 className=' py-2.5 px-2.5 font-semibold border rounded-md bg-primaryColor-300'>Reviews: ({clientReview?.length})</h3>
+                        <h3 className=' py-2.5 px-2.5 font-semibold border rounded-md bg-primaryColor-300'>Reviews: ({singleBook?.reviews?.length})</h3>
                         <div className='my-5 px-1'>
                             {loading ?
                                 <Skeleton animation={false} className="max-w-xl space-y-2.5 mt-5">
@@ -226,7 +222,7 @@ const BookDetails = () => {
                                 </Skeleton>
                                 :
                                 <div className='rounded-md'>
-                                    {clientReview.map((review, index) => (
+                                    {singleBook?.reviews.map((review, index) => (
                                         <div key={index} className="rounded-lg">
 
                                             <div className='flex items-center gap-2 mb-2'>

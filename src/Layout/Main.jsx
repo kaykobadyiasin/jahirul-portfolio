@@ -19,7 +19,7 @@ const Main = () => {
         setLoading(true);
         setTimeout(() => {
             setLoading(false);
-        }, 1500)
+        }, 0)
     }, [])
 
 
@@ -56,7 +56,7 @@ const Main = () => {
 
 
     return (
-        <div className='bg-primaryColor-300'>
+        <div className='bg-primaryColor-100'>
             {loading ?
                 <div className="flex flex-col justify-center items-center h-screen bg-secondaryColor-100 text-white">
                     <div className="animate__animated animate__heartBeat  animate__slower 3s">
