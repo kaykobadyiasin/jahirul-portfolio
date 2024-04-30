@@ -25,7 +25,7 @@ const Hero = () => {
                             allowFullScreen
                             className="object-cover w-full h-full"
                         ></iframe> */}
-                        <video src="src/assets/Hero/The Diana Award Recipient _ Muhammad Jahirul Islam.mp4" autoPlay muted loop className="w-full h-auto min-h-[100vh]"></video>
+                        <video src="src/assets/Hero/Mohammad-Jahirul-Islam.mp4" autoPlay muted loop className="w-full h-auto min-h-[100vh]"></video>
                     </div>
                     {/* Overlay */}
                     <div className="absolute inset-0 bg-black opacity-80 z-10"></div>
