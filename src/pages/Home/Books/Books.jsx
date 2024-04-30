@@ -27,9 +27,11 @@ const Books = () => {
         <div id="books" className="bg-primaryColor-300 py-32">
             <div className="container mx-auto">
                 <div className="mb-20 flex items-center lg:flex-row flex-col lg:divide-x-4 lg:divide-y-0 divide-y-4 divide-primaryColor-200 lg:gap-14 gap-5 lg:px-0 px-5">
-                    <h2 className="text-5xl font-semibold text-primaryColor-200"> <span className="text-[#151515]">My</span> Books</h2>
+                    <h2 className="text-5xl font-semibold text-primaryColor-200"> <span className="text-[#151515]">Books</span></h2>
                     <p className="lg:w-[60%] lg:text-left text-center lg:pl-14 lg:pt-0 pt-5 text-secondaryColor-300">
-                        This is Muhammad Jahirul Islam the Founder and Chairman of Ignite Global Foundation and Director of Matribhumi Group. I have pursued my undergrad degree in Aeronautical Engineering from the United College of Aviation.
+                        Explore the world of knowledge with our curated collection. From insightful guides to thrilling adventures, there's something for every reader.
+
+                        {/* Embark on a dual journey of discovery and achievement with our unique selection. "Way to Success" unveils the roadmap to personal triumph, while "Aviation Career" navigates the skies of professional fulfillment. */}
                     </p>
                 </div>
 

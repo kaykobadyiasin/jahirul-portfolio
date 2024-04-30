@@ -100,7 +100,7 @@ const Features = () => {
         <div id="feature" className="bg-primaryColor-100 py-32">
             <div className="flex flex-col justify-center text-center items-center gap-5 xl:mx-0 mx-5">
                 <Suspense fallback={'loading...'}>
-                    <SectionTitle titleP={'My'} title={'Features'} des={'Throughout my entire life I have been recognized by different organization for my relentless contribution to different sectors of our community.'} />
+                    <SectionTitle titleP={''} title={'Features'} des={'Throughout my entire life I have been recognized by different organization for my relentless contribution to different sectors of our community.'} />
                 </Suspense>
             </div>
             <div className="container mx-auto py-8">
@@ -176,7 +176,7 @@ const Features = () => {
                     }
                 </div>
             </div>
-            <div className=" bg-primaryColor-400 py-20 mt-28">
+            <div className="py-20 mt-28">
                 <div className="xl:mx-0 mx-5">
                     <div className="container mx-auto grid xl:grid-cols-5 sm:grid-cols-4 grid-cols-2 lg:justify-between justify-center items-center gap-20">
                         {news?.map((item, index) => (

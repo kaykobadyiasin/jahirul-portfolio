@@ -58,7 +58,7 @@ const Main = () => {
     return (
         <div className='bg-primaryColor-300'>
             {loading ?
-                <div className="flex flex-col justify-center items-center h-screen bg-secondaryColor-100 text-white">
+                <div className="flex flex-col justify-center items-center h-screen text-white">
                     <div className="animate__animated animate__heartBeat  animate__slower 3s">
                         <BallTriangle
                             height={60}

@@ -28,12 +28,12 @@ const Blogs = () => {
 
 
     return (
-        <div id="blogs" className="bg-primaryColor-100 pb-32">
+        <div id="blogs" className="bg-primaryColor-300 pb-32">
             <div className="flex flex-col justify-center text-center items-center gap-5 xl:mx-0 mx-5">
                 <Suspense fallback={'loading...'}>
                     <SectionTitle
-                        title={'My'}
-                        titleC={'Blogs'}
+                        title={'Blogs'}
+                        titleC={''}
                         des={'Throughout my entire life I have been recognized by different organization for my relentless contribution to different sectors of our community.'}
                     />
                 </Suspense>

@@ -4,6 +4,7 @@ import about from '../../../assets/About/about.png'
 import ignite from '../../../assets/About/ignite.png'
 import matribhumi from '../../../assets/About/matribhumi.png'
 import doted from '../../../assets/Footer/doted.png'
+import Button from '../../../Components/Button/Button';
 
 const SectionTitle = React.lazy(() => import("../../../Components/SectionTitle/SectionTitle"));
 
@@ -14,8 +15,8 @@ const aboutMe = [
     { about: 'Corporate sector' },
     { about: 'Find Resume Tips' },
     { about: 'Interview Tricks' },
-    { about: 'Aviation And Development' },
-    { about: 'soft and technical skills' },
+    // { about: 'Aviation And Development' },
+    // { about: 'soft and technical skills' },
 ]
 
 const About = () => {
@@ -35,25 +36,33 @@ const About = () => {
                                 <img src={doted} className='absolute -left-16 -top-10 z-0' alt="" />
                             </div>
                         </div>
-                        <div className='flex justify-around items-end mt-5'>
+
+                    </div>
+                    <div className='w-full'>
+                        {/* <h4 className='text-secondaryColor-200 font-semibold text-xl mb-5'>About Me</h4> */}
+                        <p className='text-secondaryColor-300 text-justify leading-relaxed'>
+                        Meet Mr. IGNITE: Muhammad Jahirul Islam, founder of Ignite Global Foundation and Director at Matribhumi Group. He's an expert in Aeronautical and Aerospace Engineering, passionate about ending hunger and promoting education in Bangladesh.
+
+                        <br /><br />
+                        Unlock Life Skills: Subscribe for essential soft and technical skills. From resumes to inclusive education, join the journey for positive change.
+
+
+
+
+                        </p>
+                        <div className='my-8'>
+                        <Button btnValue={'Achievements'} link={'#achievement'} color={'text-white lg:hover:text-secondaryColor-200 hover:text-white hover:border-primaryColor-100'} />
+                        </div>
+                        <div className='flex space-x-20 items-end mt-5'>
                             <img src={ignite} alt="IGNITE GLOBAL FOUNDATION" />
                             <img src={matribhumi} alt="Matribhumi Group" />
                         </div>
-                    </div>
-                    <div className='w-full'>
-                        <h4 className='text-secondaryColor-200 font-semibold text-xl mb-5'>About Me</h4>
-                        <p className='text-secondaryColor-300 text-justify leading-relaxed'>
-                            Muhammad Jahirul Islam, Founder & Chairman of Ignite Global Foundation and Director of Matribhumi Group, holds an undergrad degree in Aeronautical Engineering from United College of Aviation and a post-graduation in Aerospace Engineering from Carden University, USA. He leads his own business ventures alongside charitable endeavors and serves as a lecturer at United College of Aviation Science and Management. Author of 'Aviation Career,' published at 'Ekushe Boi Mela-2022' by Addomo publication, Jahirul aspires to eliminate hunger and provide quality education to underprivileged children in Bangladesh.
-                            <br /><br />
-
-                            Are you seeking guidance on essential soft and technical skills for students? Interested in navigating a career in aviation or development? Look no further. This channel offers insights into these areas, featuring TV interviews, motivational content, and resources on resume building, interview strategies, and skill development. Explore videos addressing inclusive education for Bangladeshi children. Join us in fostering positivity—subscribe and stay updated.
-                        </p>
-                        <div className='flex flex-wrap gap-5 xl:mt-20 mt-10'>
+                        {/* <div className='flex flex-wrap gap-5 xl:mt-20 mt-10'>
                             {aboutMe?.map((item, index) => (
                                 <span key={index} className='bg-secondaryColor-200 text-primaryColor-100 hover:bg-primaryColor-200 duration-200 font-semibold px-5 py-3 rounded-md capitalize'>{item?.about}</span>
                             ))
                             }
-                        </div>
+                        </div> */}
                     </div>
                 </div>
             </div>

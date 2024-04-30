@@ -11,7 +11,7 @@ const Contact = React.lazy(() => import("./Contact/Contact"));
 
 const Home = () => {
     return (
-        <div className="min-h-screen bg-secondaryColor-100">
+        <div className="min-h-screen">
             <Hero />
             <Books />
             <Suspense fallback={'Loading...'}>

@@ -30,7 +30,7 @@ const Contact = () => {
     return (
         <div id='contact' className="bg-primaryColor-300 py-32">
             <div className="container mx-auto">
-                <div className='flex lg:flex-row flex-col items-center gap-10 xl:mx-0 mx-5'>
+                <div className='flex lg:flex-row flex-col gap-10 xl:mx-0 mx-5'>
                     <div className='relative bg-primaryColor-600 border-primaryColor-200 xl:w-[60%] w-full'>
                         <div>
                             <img src={jahirul} className='rounded-md' alt="" />
@@ -41,8 +41,12 @@ const Contact = () => {
                         <div className=''>
                             <img src={doted} className='absolute top-24 -left-7  opacity-50' alt="" />
                         </div>
-                        <div className=''>
+                        {/* <div className=''>
                             <img src={doted} className='absolute bottom-24 -right-7 opacity-50' alt="" />
+                        </div> */}
+                        <div className='mt-20 space-y-4'>
+                            <p className='text-secondaryColor-200 font-semibold'><span className='text-primaryColor-200'>Call Me:</span> +8801839319088</p>
+                            <p className='text-secondaryColor-200 font-semibold'><span className='text-primaryColor-200'>Email:</span> jahirrayhan80@gmail.com</p>
                         </div>
                     </div>
                     <div className='w-full'>
@@ -55,10 +59,7 @@ const Contact = () => {
                                 Need to get in touch with us? Either fill out the form with your inquiry or find the department email you'd like to contact below.
                             </p>
                         </div>
-                        <div className='mt-20 space-y-4'>
-                            <p className='text-secondaryColor-200 font-semibold'><span className='text-primaryColor-200'>Call Me:</span> +8801839319088</p>
-                            <p className='text-secondaryColor-200 font-semibold'><span className='text-primaryColor-200'>Email:</span> jahirrayhan80@gmail.com</p>
-                        </div>
+                        
                         <div className='mt-10'>
                             <form onSubmit={handleSubmit(onSubmit)}>
                                 <div className="mb-5">

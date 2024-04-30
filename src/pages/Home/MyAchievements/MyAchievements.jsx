@@ -53,8 +53,8 @@ const MyAchievements = () => {
             <div className="flex flex-col justify-center text-center items-center gap-5 xl:mx-0 mx-5">
                 <Suspense fallback={'loading...'}>
                     <SectionTitle
-                        title={'My'}
-                        titleC={'Achievements'}
+                        title={'Achievements'}
+                        titleC={''}
                         des={'Throughout my entire life I have been recognized by different organization for my relentless contribution to different sectors of our community.'}
                     />
                 </Suspense>
@@ -62,7 +62,7 @@ const MyAchievements = () => {
             <div className="xl:mx-0 mx-5">
                 <div className="container mx-auto grid xl:grid-cols-3 lg:grid-cols-2 sm:grid-cols-2 justify-items-center gap-5 mt-10">
                     {achievements?.map((item, index) => (
-                        <div key={index} className={`p-10 ${index % 2 === 0 ? 'bg-primaryColor-300' : 'bg-primaryColor-400'} justify-self-center border border-secondaryColor-400 rounded-md`}>
+                        <div key={index} className={`p-10 ${index % 2 === 0 ? 'bg-primaryColor-300' : 'bg-primaryColor-400'} justify-self-center border border-secondaryColor-400 rounded-md hover:border-primaryColor-200 duration-200`}>
                             <Icon icon={item?.icon} className="text-primaryColor-200 text-4xl mb-10" />
                             <h3 className="text-secondaryColor-200 text-xl font-semibold mb-5">{item?.title}</h3>
                             <p className="text-secondaryColor-300">

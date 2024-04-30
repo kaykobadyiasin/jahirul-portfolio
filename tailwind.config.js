@@ -9,6 +9,7 @@ export default {
   presets: [keepPreset],
   theme: {
     extend: {
+      
       colors: {
         primaryColor: {
           100: "#ffffff",

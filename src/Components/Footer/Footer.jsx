@@ -18,27 +18,27 @@ const Footer = () => {
                     <p>&#169; Muhammad Jahirul Islam 2024 | All Right Reserved</p>
                     <div className="flex items-center gap-5 text-primaryColor-100">
 
-                        <Link to={'https://www.facebook.com/Jahir.Ignite/'} target="_blank" className="bg-primaryColor-200 p-2 rounded-full">
-                            <span >
+                        <Link to={'https://www.facebook.com/Jahir.Ignite/'} target="_blank" className="border text-primaryColor-200 hover:text-white border-primaryColor-200 hover:bg-primaryColor-200 p-2 rounded-full duration-200">
+                            <span>
                                 <Icon icon='ri:facebook-fill' className="text-lg" />
                             </span>
                         </Link>
-                        <Link to={'https://www.instagram.com/muhammadjahirulislam99/'} target="_blank" className="bg-primaryColor-200 p-2 rounded-full">
+                        <Link to={'https://www.instagram.com/muhammadjahirulislam99/'} target="_blank" className="border text-primaryColor-200 hover:text-white border-primaryColor-200 hover:bg-primaryColor-200 p-2 rounded-full duration-200">
                             <span >
                                 <Icon icon='ri:instagram-fill' className="text-lg" />
                             </span>
                         </Link>
-                        <Link to={'https://www.linkedin.com/in/muhammad-jahirul-islam/'} target="_blank" className="bg-primaryColor-200 p-2 rounded-full">
+                        <Link to={'https://www.linkedin.com/in/muhammad-jahirul-islam/'} target="_blank" className="border text-primaryColor-200 hover:text-white border-primaryColor-200 hover:bg-primaryColor-200 p-2 rounded-full duration-200">
                             <span >
                                 <Icon icon='ri:linkedin-fill' className="text-lg" />
                             </span>
                         </Link>
-                        <Link to={'https://twitter.com/jahirrayhan80'} target="_blank" className="bg-primaryColor-200 p-2 rounded-full">
+                        <Link to={'https://twitter.com/jahirrayhan80'} target="_blank" className="border text-primaryColor-200 hover:text-white border-primaryColor-200 hover:bg-primaryColor-200 p-2 rounded-full duration-200">
                             <span>
                                 <Icon icon='mdi:twitter' className="text-lg" />
                             </span>
                         </Link>
-                        <Link to={'https://www.youtube.com/channel/UCB_tJEyTocrkY2zfQ7dFm7w'} target="_blank" className="bg-primaryColor-200 p-2 rounded-full">
+                        <Link to={'https://www.youtube.com/channel/UCB_tJEyTocrkY2zfQ7dFm7w'} target="_blank" className="border text-primaryColor-200 hover:text-white border-primaryColor-200 hover:bg-primaryColor-200 p-2 rounded-full duration-200">
                             <span>
                                 <Icon icon='mdi:youtube' className="text-lg" />
                             </span>
