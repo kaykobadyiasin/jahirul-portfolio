@@ -33,7 +33,7 @@ const About = () => {
                         <div className='relative'>
                             <img src={about} className='w-full relative z-10' alt="" />
                             <div>
-                                <img src={doted} className='absolute -left-16 -top-10 z-0' alt="" />
+                                <img src={doted} className='absolute -left-14 -top-8 opacity-50 z-0' alt="" />
                             </div>
                         </div>
 
@@ -47,15 +47,15 @@ const About = () => {
                         Unlock Life Skills: Subscribe for essential soft and technical skills. From resumes to inclusive education, join the journey for positive change.
 
 
-
-
                         </p>
                         <div className='my-8'>
-                        <Button btnValue={'Achievements'} link={'#achievement'} color={'text-white lg:hover:text-secondaryColor-200 hover:text-white hover:border-primaryColor-100'} />
+                        <a href='https://www.youtube.com/channel/UCB_tJEyTocrkY2zfQ7dFm7w' className='rounded px-7 py-3 text-base font-medium hover:text-primaryColor-200 bg-primaryColor-200 hover:bg-primaryColor-200 hover:bg-opacity-5  border border-transparent hover:border-primaryColor-200 duration-200 text-white lg:hover:text-secondaryColor-200 hover:text-white hover:border-primaryColor-100' target='_blank'>
+                        Youtube channel
+                        </a>
                         </div>
                         <div className='flex space-x-20 items-end mt-5'>
-                            <img src={ignite} alt="IGNITE GLOBAL FOUNDATION" />
-                            <img src={matribhumi} alt="Matribhumi Group" />
+                            <img src={ignite} alt="IGNITE GLOBAL FOUNDATION" className='' />
+                            <img src={matribhumi} alt="Matribhumi Group" className='' />
                         </div>
                         {/* <div className='flex flex-wrap gap-5 xl:mt-20 mt-10'>
                             {aboutMe?.map((item, index) => (

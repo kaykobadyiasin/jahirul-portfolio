@@ -28,7 +28,7 @@ const Blogs = () => {
 
 
     return (
-        <div id="blogs" className="bg-primaryColor-300 pb-32">
+        <div id="blogs" className="bg-primaryColor-300 py-32">
             <div className="flex flex-col justify-center text-center items-center gap-5 xl:mx-0 mx-5">
                 <Suspense fallback={'loading...'}>
                     <SectionTitle

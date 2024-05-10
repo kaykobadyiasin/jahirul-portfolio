@@ -6,7 +6,7 @@ const Navbar = () => {
     const [open, setOpen] = useState(false);
 
     return (
-        <header className={`absolute top-8 z-50 flex w-full items-center text-secondaryColor-200 bg-transparent dark:bg-dark`}>
+        <header className={`absolute sm:top-8 z-50 flex w-full items-center text-secondaryColor-200 bg-transparent dark:bg-dark`}>
             <div className="container sm:px-0 mx-auto">
                 <div className="relative flex items-center justify-between">
                     <div className="flex w-full items-center justify-between lg:px-0 px-4">

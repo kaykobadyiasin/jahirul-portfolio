@@ -3,6 +3,7 @@ import { apiURL } from '../../../ApiService/api';
 import jahirul from '../../../assets/Footer/Jhir.jpeg'
 import border from '../../../assets/Footer/border.png'
 import doted from '../../../assets/Footer/doted.png'
+import { Icon } from "@iconify/react";
 import { useForm } from 'react-hook-form';
 
 const Contact = () => {
@@ -44,10 +45,6 @@ const Contact = () => {
                         {/* <div className=''>
                             <img src={doted} className='absolute bottom-24 -right-7 opacity-50' alt="" />
                         </div> */}
-                        <div className='mt-20 space-y-4'>
-                            <p className='text-secondaryColor-200 font-semibold'><span className='text-primaryColor-200'>Call Me:</span> +8801839319088</p>
-                            <p className='text-secondaryColor-200 font-semibold'><span className='text-primaryColor-200'>Email:</span> jahirrayhan80@gmail.com</p>
-                        </div>
                     </div>
                     <div className='w-full'>
                         <div className="max-w-md">
@@ -59,8 +56,13 @@ const Contact = () => {
                                 Need to get in touch with us? Either fill out the form with your inquiry or find the department email you'd like to contact below.
                             </p>
                         </div>
+
+                        <div className='my-7 flex lg:flex-row flex-col lg:items-center gap-5'>
+                            <p className='text-secondaryColor-200 font-semibold flex items-center gap-2'><span className='text-primaryColor-200'><Icon icon='ic:baseline-phone' className="text-lg"/></span> +8801839319088</p>
+                            <p className='text-secondaryColor-200 font-semibold flex items-center gap-2'><span className='text-primaryColor-200'><Icon icon='dashicons:email-alt' className="text-lg"/></span> jahirrayhan80@gmail.com</p>
+                        </div>
                         
-                        <div className='mt-10'>
+                        <div className='mt-5'>
                             <form onSubmit={handleSubmit(onSubmit)}>
                                 <div className="mb-5">
                                     <div className='flex sm:flex-row flex-col gap-5 '>

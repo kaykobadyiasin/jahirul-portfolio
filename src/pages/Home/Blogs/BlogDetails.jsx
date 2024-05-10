@@ -30,7 +30,7 @@ const BlogDetails = () => {
     ];
 
     return (
-        <div className="min-h-screen animate__animated animate__fadeIn">
+        <div className="animate__animated animate__fadeIn">
             {loading ?
                 <Skeleton className="max-w-xl space-y-2.5 p-10">
                     <Skeleton.Line className="h-4 w-full rounded-md" />

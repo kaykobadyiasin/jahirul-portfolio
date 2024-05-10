@@ -176,7 +176,7 @@ const Features = () => {
                     }
                 </div>
             </div>
-            <div className="py-20 mt-28">
+            <div className="py-10 mt-28">
                 <div className="xl:mx-0 mx-5">
                     <div className="container mx-auto grid xl:grid-cols-5 sm:grid-cols-4 grid-cols-2 lg:justify-between justify-center items-center gap-20">
                         {news?.map((item, index) => (
