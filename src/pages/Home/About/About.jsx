@@ -1,23 +1,10 @@
-
 import React, { Suspense } from 'react';
 import about from '../../../assets/About/about.png'
 import ignite from '../../../assets/About/ignite.png'
 import matribhumi from '../../../assets/About/matribhumi.png'
 import doted from '../../../assets/Footer/doted.png'
-import Button from '../../../Components/Button/Button';
 
 const SectionTitle = React.lazy(() => import("../../../Components/SectionTitle/SectionTitle"));
-
-
-const aboutMe = [
-    { about: 'Explore Career' },
-    { about: 'development sector' },
-    { about: 'Corporate sector' },
-    { about: 'Find Resume Tips' },
-    { about: 'Interview Tricks' },
-    // { about: 'Aviation And Development' },
-    // { about: 'soft and technical skills' },
-]
 
 const About = () => {
     return (
@@ -41,28 +28,21 @@ const About = () => {
                     <div className='w-full'>
                         {/* <h4 className='text-secondaryColor-200 font-semibold text-xl mb-5'>About Me</h4> */}
                         <p className='text-secondaryColor-300 text-justify leading-relaxed'>
-                        Meet Mr. IGNITE: Muhammad Jahirul Islam, founder of Ignite Global Foundation and Director at Matribhumi Group. He's an expert in Aeronautical and Aerospace Engineering, passionate about ending hunger and promoting education in Bangladesh.
+                        I'm Muhammad Jahirul Islam, an Aeronautical Engineering graduate and Director of Matribhumi Group. Alongside teaching at the United College of Aviation Science and Management, I've authored 'Aviation Career' and lead Ignite Global Foundation. My goal? Zero hunger and quality education for all in Bangladesh.
 
                         <br /><br />
-                        Unlock Life Skills: Subscribe for essential soft and technical skills. From resumes to inclusive education, join the journey for positive change.
-
+                        Explore my channel for guidance on student life, aviation careers, and development sectors. Find tips on soft skills, resume building, and interviews. Join me in spreading positivity by subscribing and clicking the bell icon.
 
                         </p>
-                        <div className='my-8'>
-                        <a href='https://www.youtube.com/channel/UCB_tJEyTocrkY2zfQ7dFm7w' className='rounded px-7 py-3 text-base font-medium hover:text-primaryColor-200 bg-primaryColor-200 hover:bg-primaryColor-200 hover:bg-opacity-5  border border-transparent hover:border-primaryColor-200 duration-200 text-white lg:hover:text-secondaryColor-200 hover:text-white hover:border-primaryColor-100' target='_blank'>
-                        Youtube channel
-                        </a>
-                        </div>
+                        <div className='my-8 flex sm:flex-row flex-col sm:items-end items-start 2xl:justify-normal gap-10 xl:justify-between'>
                         <div className='flex space-x-20 items-end mt-5'>
                             <img src={ignite} alt="IGNITE GLOBAL FOUNDATION" className='' />
                             <img src={matribhumi} alt="Matribhumi Group" className='' />
                         </div>
-                        {/* <div className='flex flex-wrap gap-5 xl:mt-20 mt-10'>
-                            {aboutMe?.map((item, index) => (
-                                <span key={index} className='bg-secondaryColor-200 text-primaryColor-100 hover:bg-primaryColor-200 duration-200 font-semibold px-5 py-3 rounded-md capitalize'>{item?.about}</span>
-                            ))
-                            }
-                        </div> */}
+                        <a href='https://www.youtube.com/channel/UCB_tJEyTocrkY2zfQ7dFm7w' className=' rounded px-7 py-3 text-base font-medium hover:text-primaryColor-200 bg-primaryColor-200 hover:bg-primaryColor-200 hover:bg-opacity-5  border border-transparent hover:border-primaryColor-200 duration-200 text-white lg:hover:text-secondaryColor-200 hover:text-white hover:border-primaryColor-100' target='_blank'>
+                        Youtube channel
+                        </a>
+                        </div>
                     </div>
                 </div>
             </div>

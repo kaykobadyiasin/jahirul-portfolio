@@ -55,7 +55,7 @@ const MyAchievements = () => {
                     <SectionTitle
                         title={'Achievements'}
                         titleC={''}
-                        des={'Throughout my entire life I have been recognized by different organization for my relentless contribution to different sectors of our community.'}
+                        des={'Throughout my entire life I have been recognized by different organization for my relentless contribution to different sectors of our community. Among all of my recognition I would like to highlight a number of significant accomplishment is given below.'}
                     />
                 </Suspense>
             </div>

@@ -22,9 +22,6 @@ const Main = () => {
         }, 1000)
     }, [])
 
-
-
-
     const [isVisible, setIsVisible] = useState(false);
 
     useEffect(() => {
@@ -51,20 +48,16 @@ const Main = () => {
         });
     };
 
-
-
-
-
     return (
         <div className='bg-primaryColor-300'>
             {loading ?
-                <div className="flex flex-col justify-center items-center text-white">
+                <div className="flex flex-col min-h-screen justify-center items-center text-white">
                     <div className="animate__animated animate__heartBeat  animate__slower 3s">
                         <BallTriangle
                             height={60}
                             width={60}
                             radius={5}
-                            color="#ffffff"
+                            color="#008EFF"
                             ariaLabel="ball-triangle-loading"
                             wrapperStyle={{}}
                             wrapperClass=""

@@ -100,7 +100,7 @@ const Features = () => {
         <div id="feature" className="bg-primaryColor-100 py-32">
             <div className="flex flex-col justify-center text-center items-center gap-5 xl:mx-0 mx-5">
                 <Suspense fallback={'loading...'}>
-                    <SectionTitle titleP={''} title={'Features'} des={'Throughout my entire life I have been recognized by different organization for my relentless contribution to different sectors of our community.'} />
+                    <SectionTitle titleP={''} title={'Features'} des={'Highlighted in over 12 newspapers for my impactful endeavors and contributions.'} />
                 </Suspense>
             </div>
             <div className="container mx-auto py-8">

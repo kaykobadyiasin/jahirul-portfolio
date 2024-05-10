@@ -34,7 +34,7 @@ const Blogs = () => {
                     <SectionTitle
                         title={'Blogs'}
                         titleC={''}
-                        des={'Throughout my entire life I have been recognized by different organization for my relentless contribution to different sectors of our community.'}
+                        des={'Insights and musings from Muhammad Jahirul Islam, offering valuable perspectives on leadership, education, and community development.'}
                     />
                 </Suspense>
             </div>
